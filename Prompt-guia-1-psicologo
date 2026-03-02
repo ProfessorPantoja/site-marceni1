@@ -1,0 +1,71 @@
+Crie um site completo, moderno e profissional para uma psicóloga.
+O site deve transmitir acolhimento, confiança e sofisticação.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+🎨 IDENTIDADE VISUAL
+━━━━━━━━━━━━━━━━━━━━━━━━━
+- Paleta de cores: tons terrosos e suaves (bege, nude, terracota leve, verde-sálvia ou lilás desbotado). Fundo claro, detalhes escuros para contraste.
+- Tipografia: fonte serif elegante para títulos (ex: Playfair Display) + fonte sans-serif clean para corpo (ex: Inter ou DM Sans).
+- Estética geral: minimalismo acolhedor. Nada clínico demais, nada infantil. Inspiração em sites de bem-estar de luxo.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+📐 LAYOUT E ESTRUTURA
+━━━━━━━━━━━━━━━━━━━━━━━━━
+- Layout assimétrico e visualmente dinâmico: evitar grids quadrados e simétricos.
+- Usar composições com elementos deslocados, sobreposições sutis de texto sobre imagem e blocos de largura variável.
+- Usar placeholders de imagem estratégicos (proporção retrato e paisagem variando por seção).
+- Espaçamento generoso entre seções (whitespace intencional).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+📱 RESPONSIVIDADE — MOBILE-FIRST
+━━━━━━━━━━━━━━━━━━━━━━━━━
+- Desenvolver prioritariamente para mobile.
+- No desktop: layout expande com elegância, aproveitando o espaço horizontal com colunas assimétricas e elementos flutuantes.
+- Menu mobile: hamburger com transição suave, fullscreen ou drawer lateral.
+- Todos os CTAs devem ser facilmente clicáveis com o polegar (touch-friendly).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+✨ MICRO-ANIMAÇÕES E INTERATIVIDADE
+━━━━━━━━━━━━━━━━━━━━━━━━━
+- Elementos entram na viewport com fade-in suave + leve deslocamento vertical (scroll reveal).
+- Títulos grandes com efeito de reveal (máscara deslizando ou opacidade progressiva).
+- Hover nos cards e botões: leve elevação (translateY), mudança de cor gradual ou sublinhado animado.
+- Cursor personalizado (opcional): ponto suave que reage ao hover em elementos clicáveis.
+- Transições de seção fluidas ao rolar a página.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+🖼️ TRANSIÇÃO IMERSIVA — GALERIA EM TELA CHEIA
+━━━━━━━━━━━━━━━━━━━━━━━━━
+- Criar uma seção de transição imersiva entre o Hero e a próxima seção.
+- Comportamento: ao rolar ou após um tempo, ocupa 100vw x 100vh com uma sequência de fotos (placeholders) em slideshow cinematográfico — crossfade lento entre imagens (estilo editorial/portfólio de fotógrafo).
+- Sobre as imagens: texto centralizado e elegante, como uma frase de impacto da psicóloga (ex: "Um espaço seguro para ser quem você é.").
+- Pode usar Ken Burns effect (zoom lento) nas imagens para mais profundidade.
+- Botão sutil de "skip" ou scroll para avançar.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+📄 SEÇÕES DO SITE
+━━━━━━━━━━━━━━━━━━━━━━━━━
+1. HERO — Título de impacto + subtítulo acolhedor + CTA principal ("Agendar consulta") + placeholder de imagem assimétrico ao lado.
+2. GALERIA IMERSIVA — Transição em tela cheia descrita acima.
+3. SOBRE — Apresentação da psicóloga. Layout com imagem grande à esquerda (placeholder) e texto à direita, levemente deslocado verticalmente. CRPs e formações em destaque sutil.
+4. ABORDAGEM / ESPECIALIDADES — Cards assimétricos ou lista visual com ícones minimalistas. Ex: terapia individual, ansiedade, relacionamentos, autoconhecimento.
+5. COMO FUNCIONA — 3 passos simples ilustrados (ícone + texto): Agendamento → Primeira sessão → Processo terapêutico.
+6. DEPOIMENTOS — Citações de clientes (fictícias/placeholders) em layout elegante, com aspas grandes decorativas.
+7. CTA CENTRAL — Bloco destacado com fundo diferente, frase motivacional e botão grande: "Quero começar minha jornada".
+8. CONTATO / AGENDAMENTO — Formulário simples (nome, e-mail, mensagem) + ícones de WhatsApp e Instagram com hover animado.
+9. FOOTER — Logo, links rápidos, redes sociais, CRP e frase final delicada.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+🔘 CTAs — BOTÕES DE AÇÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━
+- CTA principal: fundo escuro (contraste alto), cantos arredondados, padding generoso.
+- Hover: leve inversão de cor ou efeito de preenchimento animado (fill effect).
+- CTA flutuante fixo no mobile: botão de WhatsApp no canto inferior direito, sempre visível, com pulso suave (animação ping).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+⚙️ STACK TÉCNICA SUGERIDA
+━━━━━━━━━━━━━━━━━━━━━━━━━
+- HTML5 + CSS3 + JavaScript vanilla ou Next.js + Tailwind CSS (escolha a melhor opção).
+- Animações: CSS transitions + Intersection Observer API ou Framer Motion (se React).
+- Sem dependências pesadas desnecessárias. Priorizar performance e carregamento rápido.
+- Imagens: usar tags <img> com aspect-ratio definido e background-color como placeholder visual.
