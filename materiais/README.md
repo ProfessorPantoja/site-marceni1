@@ -1,4 +1,4 @@
-# Cliente: Marceni
+# Materiais - Marceni
 
 Esta pasta guarda tudo que for sendo coletado/baixado da Marceni para alimentar o site e a comunicacao.
 
@@ -12,4 +12,3 @@ Subpastas:
 
 Padrao de nome (recomendado):
 - `YYYY-MM-DD_origem_assunto.ext`
-

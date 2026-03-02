@@ -4,7 +4,7 @@ Ultima atualizacao: 2026-03-02
 
 ## Conteudo (prioridade alta)
 - [ ] Foto profissional da Marceni (ideal: retrato vertical, alta resolucao)
-- [ ] Print do Instagram (bio/perfil) salvo em `CODEX-53/marceni/clientes/marceni/prints/`
+- [ ] Print do Instagram (bio/perfil) salvo em `materiais/prints/`
 - [ ] Logo final (ou confirmar: simbolo da psicologia + nome + CRP)
 - [ ] Confirmar texto final do nicho (1 frase curta)
 - [ ] Confirmar endereco presencial (esta ok, so validar escrita/pontuacao)

@@ -12,4 +12,4 @@ WhatsApp:
 - O botao "Agendar consulta" abre o WhatsApp com uma mensagem pre-preenchida.
 
 Como ver:
-- Abra `CODEX-53/marceni/V1/index.html` no navegador.
+- Abra `CODEX-53/V1/index.html` no navegador.
