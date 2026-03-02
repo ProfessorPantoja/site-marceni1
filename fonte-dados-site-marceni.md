@@ -23,13 +23,12 @@ Ajudando homens e mulheres a superar desafios como:
 - On-line
 - Palestras
 
-## Mensagem 15:06
-Na frente: logo, nome, CRP e nicho.
 
-No verso, as coisas que escrevi.
 
-## Mensagem 15:09
-Sobre a logo, deixa o símbolo da psicologia mesmo.
-
-## Mensagem 15:18 (Fabio Pantoja)
-Deixa comigo!
+## Mensagem 19:22
+Endereço de atendimento presencial:
+- Avenida José Bento Ribeiro Dantas
+- Número 5001, sala 03
+- (Em cima da loja Engeluz)
+- Bairro: Manguinhos
+- Búzios - RJ

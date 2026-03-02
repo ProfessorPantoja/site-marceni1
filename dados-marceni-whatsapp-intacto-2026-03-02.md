@@ -28,3 +28,8 @@ Nicho
 Verso as coisas que escrevi
 [15:09, 2/3/2026] Cli - Marceni - LCF - Psicologa e Hinode: Sobre a logo deixa o símbolo da psicologia mesmo .
 [15:18, 2/3/2026] Fabio Pantoja: deixa comigo!
+[19:22, 2/3/2026] Cli - Marceni - LCF - Psicologa e Hinode: Avenida José Bento Ribeiro Dantas
+Número 5001 sala 03
+(Encima da loja engeluz)
+Bairro: manguinhos
+Búzios RJ
