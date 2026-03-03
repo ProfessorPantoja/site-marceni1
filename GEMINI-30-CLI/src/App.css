@@ -465,6 +465,13 @@
   font-size: 1.15rem;
 }
 
+.client-brief-lead {
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.03rem;
+  line-height: 1.6;
+}
+
 .client-brief-block ul {
   margin: 0;
   padding-left: 20px;

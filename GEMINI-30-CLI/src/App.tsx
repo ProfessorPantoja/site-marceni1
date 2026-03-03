@@ -131,7 +131,10 @@ function App() {
           <div className="gold-line"></div>
         </div>
         <div className="client-brief-block reveal" style={{ '--reveal-delay': '70ms' } as CSSProperties}>
-          <h3>Demandas descritas pela cliente</h3>
+          <h3>Principais Demandas de Atendimento</h3>
+          <p className="client-brief-lead">
+            Você não precisa enfrentar esses desafios emocionais sozinho. Estou com você nesse processo.
+          </p>
           <ul>
             <li>Ansiedade</li>
             <li>Exaustão por trabalho ( burnout)</li>
@@ -196,7 +199,7 @@ function App() {
               <div className="gold-line"></div>
             </div>
             <p className="reveal" style={{ '--reveal-delay': '70ms' } as CSSProperties}>
-              Você não precisa enfrentar esses desafios emocionais sozinho. Estou com você nesse processo.
+              Estou pronta para te acompanhar nessa jornada de autodescoberta.
             </p>
             
             <div className="info-item reveal" style={{ '--reveal-delay': '110ms' } as CSSProperties}>

@@ -60,6 +60,8 @@ Objetivo:
 - Credito `Design & Desenvolvimento | Fabio Pantoja` reforcado para aparecer com destaque no desktop (mantido no mobile).
 - Ajuste fino na mesma secao `Formatos de Atendimento`: centralizacao do bloco corrigida com `max-width` + `margin: 0 auto`.
 - Texto de acolhimento da secao `Entre em Contato` atualizado para: `Você não precisa enfrentar esses desafios emocionais sozinho. Estou com você nesse processo.` (decisao conjunta cliente + IA Codex 5.3).
+- Reversao solicitada: texto de acolhimento da secao `Entre em Contato` voltou para `Estou pronta para te acompanhar nessa jornada de autodescoberta.`.
+- Ajuste de direcionamento: no bloco de demandas, titulo alterado para `Principais Demandas de Atendimento` e frase de acolhimento inserida no proprio bloco.
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD
