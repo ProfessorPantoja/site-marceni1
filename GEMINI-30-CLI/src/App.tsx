@@ -164,6 +164,19 @@ function App() {
                 Búzios - RJ
               </span>
             </div>
+
+            <div className="map-block">
+              <h3 className="map-title">Como chegar</h3>
+              <div className="map-embed">
+                <iframe
+                  title="Mapa - Engeluz Home Center em Buzios"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.7446182378867!2d-41.92228402344681!3d-22.7748569331717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9655735aa0ed57%3A0x5872ddf6bab3a5e0!2sEngeluz%20Home%20Center%20-%20B%C3%BAzios!5e0!3m2!1spt-BR!2sbr!4v1772501182600!5m2!1spt-BR!2sbr"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
           </div>
           <div className="contact-cta">
             <div className="cta-box">
