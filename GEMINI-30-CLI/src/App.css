@@ -48,6 +48,7 @@
   height: clamp(62px, 6vw, 94px);
   object-fit: contain;
   object-position: center;
+  margin-left: -10px;
   padding: 0;
   background: transparent;
   border-radius: 10px;
