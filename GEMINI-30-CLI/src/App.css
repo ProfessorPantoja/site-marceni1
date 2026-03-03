@@ -29,13 +29,13 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   justify-self: center;
 }
 
 .logo-icon {
-  width: clamp(52px, 4.6vw, 74px);
-  height: clamp(52px, 4.6vw, 74px);
+  width: clamp(58px, 5vw, 84px);
+  height: clamp(58px, 5vw, 84px);
   object-fit: cover;
   object-position: center;
   border-radius: 10px;
@@ -44,8 +44,8 @@
 }
 
 .logo-wordmark {
-  width: clamp(260px, 27vw, 420px);
-  height: clamp(56px, 5.4vw, 84px);
+  width: clamp(300px, 30vw, 470px);
+  height: clamp(62px, 6vw, 94px);
   object-fit: contain;
   object-position: center;
   padding: 0;
@@ -410,7 +410,7 @@
 
 @media (max-width: 768px) {
   .navbar {
-    height: 102px;
+    height: 112px;
   }
 
   .nav-content {
@@ -422,13 +422,13 @@
   }
 
   .logo-icon {
-    width: 48px;
-    height: 48px;
+    width: 54px;
+    height: 54px;
   }
 
   .logo-wordmark {
-    width: 196px;
-    height: 54px;
+    width: 232px;
+    height: 62px;
     padding: 0;
   }
 

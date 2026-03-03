@@ -27,6 +27,13 @@ Objetivo:
 - Botao `Agendar` do topo reduzido para ficar visualmente menor (desktop e mobile).
 - Removida borda/caixa da logo retangular (wordmark) no navbar para visual mais limpo.
 
+## 2026-03-03
+
+- Wordmark do navbar alterada de JPG para PNG transparente:
+- de `public/logo-Marceni-somente-texto.jpg`
+- para `public/logo-Marceni-somente-texto-PNG.png`
+- Escala da composicao de logo no navbar aumentada (icone + wordmark), com altura da barra ajustada para melhor respiro no mobile.
+
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD
 - O que mudou:
