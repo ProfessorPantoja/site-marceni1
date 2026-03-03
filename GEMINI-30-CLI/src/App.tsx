@@ -25,7 +25,8 @@ function App() {
             <a href="#contato">Contato</a>
           </div>
           <a href="#sobre" className="logo" aria-label="Ir para secao sobre">
-            <img src="/logo-marceni.png" alt="Logo Marceni Correa" loading="eager" />
+            <img className="logo-icon" src="/logo-marceni-MC-512x512.png" alt="Monograma MC da Marceni" loading="eager" />
+            <img className="logo-wordmark" src="/logo-Marceni-somente-texto.jpg" alt="Marceni Correa" loading="eager" />
           </a>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="nav-btn">
             Agendar

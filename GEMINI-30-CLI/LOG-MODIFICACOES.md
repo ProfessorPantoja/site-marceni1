@@ -19,6 +19,11 @@ Objetivo:
 - Logo `public/logo-marceni.png` adicionada na navbar e no rodape.
 - Hero atualizado para usar `public/fundo-site-marceni.webp` como fundo principal.
 - Navbar atualizada para exibir somente a logo central, maior e em formato retangular (corte vertical por `object-fit: cover`), removendo o texto "Marceni Correa" do topo.
+- Navbar ajustada para composicao com duas logos lado a lado:
+- icone quadrado `public/logo-marceni-MC-512x512.png` (esquerda)
+- wordmark retangular `public/logo-Marceni-somente-texto.jpg` (direita)
+- Hero alterado para usar `public/fundo2.jpg`.
+- Navbar refinada para deixar a composicao das logos menos apertada (mais altura, mais espaco e wordmark com `object-fit: contain`).
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD
