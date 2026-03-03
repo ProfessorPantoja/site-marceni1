@@ -17,6 +17,8 @@ Objetivo:
 - Placeholder da secao "Sobre" substituido pela foto real em `public/quem-e-marceni-1.png`.
 - Ajustado CSS da imagem para preenchimento correto com `object-fit: cover`.
 - Logo `public/logo-marceni.png` adicionada na navbar e no rodape.
+- Hero atualizado para usar `public/fundo-site-marceni.webp` como fundo principal.
+- Navbar atualizada para exibir somente a logo central, maior e em formato retangular (corte vertical por `object-fit: cover`), removendo o texto "Marceni Correa" do topo.
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD

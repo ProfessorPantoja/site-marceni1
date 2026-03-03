@@ -19,15 +19,14 @@ function App() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-content">
-          <div className="logo">
-            <img src="/logo-marceni.png" alt="Logo Marceni Correa" loading="eager" />
-            <span>Marceni Correa</span>
-          </div>
           <div className="nav-links">
             <a href="#sobre">Sobre</a>
             <a href="#atendimento">Atendimento</a>
             <a href="#contato">Contato</a>
           </div>
+          <a href="#sobre" className="logo" aria-label="Ir para secao sobre">
+            <img src="/logo-marceni.png" alt="Logo Marceni Correa" loading="eager" />
+          </a>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="nav-btn">
             Agendar
           </a>
