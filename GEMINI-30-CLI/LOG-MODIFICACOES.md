@@ -14,6 +14,9 @@ Objetivo:
 ### Alteracao atual
 - Inserido mapa embed do Google Maps na secao de contato (referencia: Engeluz Home Center - Buzios).
 - Mantido carregamento `lazy` e `referrerPolicy` para melhor comportamento de performance/privacidade.
+- Placeholder da secao "Sobre" substituido pela foto real em `public/quem-e-marceni-1.png`.
+- Ajustado CSS da imagem para preenchimento correto com `object-fit: cover`.
+- Logo `public/logo-marceni.png` adicionada na navbar e no rodape.
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD

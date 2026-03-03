@@ -4,7 +4,6 @@ import {
   Mail, 
   MapPin, 
   Phone, 
-  Users, 
   Video, 
   Mic2,
   CheckCircle2,
@@ -20,7 +19,10 @@ function App() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-content">
-          <div className="logo">Marceni Correa</div>
+          <div className="logo">
+            <img src="/logo-marceni.png" alt="Logo Marceni Correa" loading="eager" />
+            <span>Marceni Correa</span>
+          </div>
           <div className="nav-links">
             <a href="#sobre">Sobre</a>
             <a href="#atendimento">Atendimento</a>
@@ -69,12 +71,8 @@ function App() {
             </p>
           </div>
           <div className="about-image">
-            {/* Placeholder for professional photo */}
             <div className="image-placeholder">
-              <div className="placeholder-content">
-                <Users size={48} color="var(--gold)" />
-                <span>Marceni Correa</span>
-              </div>
+              <img src="/quem-e-marceni-1.png" alt="Marceni Correa Inacio Coutinho" loading="lazy" />
             </div>
           </div>
         </div>
@@ -195,6 +193,7 @@ function App() {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-brand">
+            <img className="footer-logo" src="/logo-marceni.png" alt="Logo Marceni Correa" loading="lazy" />
             <h3>Marceni Correa</h3>
             <p>Psicóloga & Empresária - CRP 05/67563</p>
           </div>
