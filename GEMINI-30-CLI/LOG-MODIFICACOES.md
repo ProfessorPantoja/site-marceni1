@@ -42,6 +42,11 @@ Objetivo:
 - Sub do hero reorganizado em lista visual com os temas: `Ansiedade`, `burnout`, `Falta de equilíbrio`, `Desequilíbrio de papéis e energias em relacionamentos` e `Inversão de papéis Familiar`.
 - Frase adicionada na secao Sobre: `Psicóloga para Empreendedores Iniciantes e Empresários de Médio Porte`.
 - Bloco literal incluído em Áreas de Atuação com os 5 itens do pedido da cliente (texto completo).
+- Pacote de animacoes premium adicionado em todo o site:
+- entrada por scroll com `IntersectionObserver` (classe `.reveal` + `is-visible`) em secoes, cards, bloco da cliente, contato e rodape.
+- hero com sequencia de entrada dos elementos, chips com stagger e brilho sutil de fundo.
+- microinteracoes em navbar, botoes, cards, mapa e logo do rodape.
+- fallback de acessibilidade com `prefers-reduced-motion`.
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD

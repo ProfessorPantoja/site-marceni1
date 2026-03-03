@@ -1,3 +1,4 @@
+import { useEffect, type CSSProperties } from 'react';
 import { 
   MessageCircle, 
   Instagram, 
@@ -13,6 +14,35 @@ import './App.css';
 
 function App() {
   const whatsappUrl = "https://wa.me/5522998946111?text=Oi%2C%20Marceni%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20como%20funciona%20o%20atendimento.";
+
+  useEffect(() => {
+    const animatedElements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      animatedElements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.14,
+        rootMargin: '0px 0px -8% 0px'
+      }
+    );
+
+    animatedElements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="app-container">
@@ -44,7 +74,7 @@ function App() {
 
       {/* Hero Section */}
       <header className="hero">
-        <div className="hero-content">
+        <div className="hero-content hero-enter">
           <span className="hero-eyebrow">Psicóloga & Empresária | CRP 05/67563</span>
           <h1>Ajudando homens e mulheres a superar desafios</h1>
           <ul className="hero-subtopics" aria-label="Principais desafios atendidos">
@@ -66,12 +96,12 @@ function App() {
 
       {/* Section: Sobre */}
       <section id="sobre" className="about">
-        <div className="section-header">
+        <div className="section-header reveal">
           <h2>Sobre Marceni</h2>
           <div className="gold-line"></div>
         </div>
         <div className="about-grid">
-          <div className="about-text">
+          <div className="about-text reveal">
             <p className="about-positioning">
               Psicóloga para Empreendedores Iniciantes e Empresários de Médio Porte
             </p>
@@ -85,7 +115,7 @@ function App() {
               Como CEO da Academia Cérebro, ela integra sua expertise em psicologia com a visão empresarial para ajudar adultos ansiosos a reencontrarem paz e direção na vida e no empreendedorismo.
             </p>
           </div>
-          <div className="about-image">
+          <div className="about-image reveal" style={{ '--reveal-delay': '120ms' } as CSSProperties}>
             <div className="image-placeholder">
               <img src="/quem-e-marceni-1.png" alt="Marceni Correa Inacio Coutinho" loading="lazy" />
             </div>
@@ -95,12 +125,12 @@ function App() {
 
       {/* Section: Demandas Atendidas */}
       <section id="atendimento" className="demands">
-        <div className="section-header">
+        <div className="section-header reveal">
           <h2>Áreas de Atuação</h2>
           <p className="section-subtitle">Ajudando você a superar os desafios modernos e reencontrar o equilíbrio.</p>
           <div className="gold-line"></div>
         </div>
-        <div className="client-brief-block">
+        <div className="client-brief-block reveal" style={{ '--reveal-delay': '70ms' } as CSSProperties}>
           <h3>Demandas descritas pela cliente</h3>
           <ul>
             <li>Ansiedade</li>
@@ -119,7 +149,11 @@ function App() {
             { title: "Inversão de Papéis", desc: "Tratando conflitos familiares e reorganização de hierarquias." },
             { title: "Empreendedorismo", desc: "Apoio psicológico focado nos desafios da jornada empresarial." }
           ].map((item, index) => (
-            <div key={index} className="demand-card">
+            <div
+              key={index}
+              className="demand-card reveal"
+              style={{ '--reveal-delay': `${120 + index * 80}ms` } as CSSProperties}
+            >
               <CheckCircle2 size={24} color="var(--gold)" />
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
@@ -130,22 +164,22 @@ function App() {
 
       {/* Section: Formatos */}
       <section className="formats dark-bg">
-        <div className="section-header">
+        <div className="section-header reveal">
           <h2>Formatos de Atendimento</h2>
           <div className="gold-line"></div>
         </div>
         <div className="formats-grid">
-          <div className="format-card">
+          <div className="format-card reveal" style={{ '--reveal-delay': '70ms' } as CSSProperties}>
             <MapPin size={32} />
             <h3>Presencial</h3>
             <p>Atendimento em Búzios, RJ, em ambiente seguro e acolhedor.</p>
           </div>
-          <div className="format-card">
+          <div className="format-card reveal" style={{ '--reveal-delay': '150ms' } as CSSProperties}>
             <Video size={32} />
             <h3>On-line</h3>
             <p>Flexibilidade para atendimento de qualquer lugar do mundo.</p>
           </div>
-          <div className="format-card">
+          <div className="format-card reveal" style={{ '--reveal-delay': '230ms' } as CSSProperties}>
             <Mic2 size={32} />
             <h3>Palestras</h3>
             <p>Conteúdo especializado para empresas e eventos sobre saúde mental.</p>
@@ -156,26 +190,28 @@ function App() {
       {/* Section: Contato */}
       <section id="contato" className="contact">
         <div className="contact-container">
-          <div className="contact-info">
+          <div className="contact-info reveal">
             <div className="section-header align-left">
               <h2>Entre em Contato</h2>
               <div className="gold-line"></div>
             </div>
-            <p>Estou pronta para te acompanhar nessa jornada de autodescoberta e saúde mental.</p>
+            <p className="reveal" style={{ '--reveal-delay': '70ms' } as CSSProperties}>
+              Estou pronta para te acompanhar nessa jornada de autodescoberta e saúde mental.
+            </p>
             
-            <div className="info-item">
+            <div className="info-item reveal" style={{ '--reveal-delay': '110ms' } as CSSProperties}>
               <Mail size={20} color="var(--gold)" />
               <span>marcenipsicoach@gmail.com</span>
             </div>
-            <div className="info-item">
+            <div className="info-item reveal" style={{ '--reveal-delay': '150ms' } as CSSProperties}>
               <Instagram size={20} color="var(--gold)" />
               <a href="https://instagram.com/marcenicorrea" target="_blank" rel="noopener noreferrer">@marcenicorrea</a>
             </div>
-            <div className="info-item">
+            <div className="info-item reveal" style={{ '--reveal-delay': '190ms' } as CSSProperties}>
               <Phone size={20} color="var(--gold)" />
               <span>(22) 99894-6111</span>
             </div>
-            <div className="info-item">
+            <div className="info-item reveal" style={{ '--reveal-delay': '230ms' } as CSSProperties}>
               <MapPin size={20} color="var(--gold)" />
               <span>
                 Avenida José Bento Ribeiro Dantas, 5001, sala 03
@@ -188,7 +224,7 @@ function App() {
               </span>
             </div>
 
-            <div className="map-block">
+            <div className="map-block reveal" style={{ '--reveal-delay': '260ms' } as CSSProperties}>
               <h3 className="map-title">Como chegar</h3>
               <div className="map-embed">
                 <iframe
@@ -201,7 +237,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="contact-cta">
+          <div className="contact-cta reveal" style={{ '--reveal-delay': '170ms' } as CSSProperties}>
             <div className="cta-box">
               <h3>Dê o primeiro passo</h3>
               <p>O agendamento é feito diretamente pelo WhatsApp de forma simples e segura.</p>
@@ -217,14 +253,14 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <div className="footer-brand">
+          <div className="footer-brand reveal">
             <img className="footer-logo" src="/logo-marceni.png" alt="Logo Marceni Correa" loading="lazy" />
             <h3>Marceni Correa</h3>
             <p>Psicóloga & Empresária - CRP 05/67563</p>
           </div>
-          <div className="footer-bottom">
+          <div className="footer-bottom reveal" style={{ '--reveal-delay': '80ms' } as CSSProperties}>
             <p>&copy; 2026 Marceni Correa. Todos os direitos reservados.</p>
-            <p className="designer-tag">Design & Desenvolvimento | Gemini CLI</p>
+            <p className="designer-tag">Design & Desenvolvimento | Fabio Pantoja</p>
           </div>
         </div>
       </footer>
