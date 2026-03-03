@@ -503,8 +503,11 @@
 /* Formats */
 .dark-bg {
   background-color: #080808;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .formats-grid {
@@ -671,6 +674,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
   padding-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   font-size: 0.9rem;
@@ -678,8 +683,12 @@
 }
 
 .designer-tag {
-  font-size: 0.8rem;
-  opacity: 0.5;
+  margin-left: auto;
+  font-size: 0.84rem;
+  color: rgba(212, 175, 55, 0.92);
+  opacity: 1;
+  font-weight: 500;
+  letter-spacing: 0.015em;
 }
 
 .reveal {
@@ -806,6 +815,10 @@
     flex-direction: column;
     gap: 15px;
     text-align: center;
+  }
+
+  .designer-tag {
+    margin-left: 0;
   }
 }
 

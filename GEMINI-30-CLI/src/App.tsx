@@ -145,7 +145,7 @@ function App() {
             { title: "Ansiedade", desc: "Superação de crises e gestão emocional para uma vida mais leve." },
             { title: "Burnout & Exaustão", desc: "Recuperação do esgotamento profissional e prevenção de novas crises." },
             { title: "Equilíbrio de Vida", desc: "Harmonia entre as áreas pessoal, profissional e espiritual." },
-            { title: "Relacionamentos", desc: "Ajuste de papéis e energias para convivências mais saudáveis." },
+            { title: "Relacionamentos", desc: "Mulheres que assumem papéis masculinos e homens que assumem papéis femininos" },
             { title: "Inversão de Papéis", desc: "Tratando conflitos familiares e reorganização de hierarquias." },
             { title: "Empreendedorismo", desc: "Apoio psicológico focado nos desafios da jornada empresarial." }
           ].map((item, index) => (
@@ -182,7 +182,7 @@ function App() {
           <div className="format-card reveal" style={{ '--reveal-delay': '230ms' } as CSSProperties}>
             <Mic2 size={32} />
             <h3>Palestras</h3>
-            <p>Conteúdo especializado para empresas e eventos sobre saúde mental.</p>
+            <p>Ansiedade - Exaustão Por Trabalho - Troca de Hierarquia (filhos com pais) - Inversão de Papeis (Marido e Mulher)</p>
           </div>
         </div>
       </section>
@@ -196,7 +196,7 @@ function App() {
               <div className="gold-line"></div>
             </div>
             <p className="reveal" style={{ '--reveal-delay': '70ms' } as CSSProperties}>
-              Estou pronta para te acompanhar nessa jornada de autodescoberta e saúde mental.
+              Estou pronta para te acompanhar nessa jornada de autodescoberta.
             </p>
             
             <div className="info-item reveal" style={{ '--reveal-delay': '110ms' } as CSSProperties}>
@@ -258,7 +258,7 @@ function App() {
             <h3>Marceni Correa</h3>
             <p>Psicóloga & Empresária - CRP 05/67563</p>
           </div>
-          <div className="footer-bottom reveal" style={{ '--reveal-delay': '80ms' } as CSSProperties}>
+          <div className="footer-bottom">
             <p>&copy; 2026 Marceni Correa. Todos os direitos reservados.</p>
             <p className="designer-tag">Design & Desenvolvimento | Fabio Pantoja</p>
           </div>

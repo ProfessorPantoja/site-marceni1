@@ -48,6 +48,18 @@ Objetivo:
 - microinteracoes em navbar, botoes, cards, mapa e logo do rodape.
 - fallback de acessibilidade com `prefers-reduced-motion`.
 
+### CHECKPOINT - INICIO DAS SOLICITACOES DA CLIENTE
+- Data/hora de referencia: 2026-03-03
+- Baseline tecnico: commit `7fe6e34`
+- Regra: a partir deste ponto, as entradas abaixo representam ajustes solicitados diretamente pela cliente.
+
+- Ajuste de copy em `Áreas de Atuação` no card `Relacionamentos` para: `Mulheres que assumem papéis masculinos e homens que assumem papéis femininos`.
+- Ajuste de copy no card `Palestras` para: `Ansiedade - Exaustão Por Trabalho - Troca de Hierarquia (filhos com pais) - Inversão de Papeis (Marido e Mulher)`.
+- Ajuste de copy na secao `Entre em Contato`: removido `e saúde mental` do texto introdutorio.
+- Correcao de alinhamento da secao `Formatos de Atendimento` para seguir a mesma linha estrutural das demais secoes no desktop.
+- Credito `Design & Desenvolvimento | Fabio Pantoja` reforcado para aparecer com destaque no desktop (mantido no mobile).
+- Ajuste fino na mesma secao `Formatos de Atendimento`: centralizacao do bloco corrigida com `max-width` + `margin: 0 auto`.
+
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD
 - O que mudou:
