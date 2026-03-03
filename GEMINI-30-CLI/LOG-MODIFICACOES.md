@@ -31,8 +31,9 @@ Objetivo:
 
 - Wordmark do navbar alterada de JPG para PNG transparente:
 - de `public/logo-Marceni-somente-texto.jpg`
-- para `public/logo-Marceni-somente-texto-PNG.png`
+- para `public/logo-Marceni-somente-texto.png`
 - Escala da composicao de logo no navbar aumentada (icone + wordmark), com altura da barra ajustada para melhor respiro no mobile.
+- Ajustada referencia da wordmark no `App.tsx` com fallback para JPG em caso de troca de arquivo.
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD
