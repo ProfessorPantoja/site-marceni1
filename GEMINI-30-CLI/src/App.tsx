@@ -196,7 +196,7 @@ function App() {
               <div className="gold-line"></div>
             </div>
             <p className="reveal" style={{ '--reveal-delay': '70ms' } as CSSProperties}>
-              Estou pronta para te acompanhar nessa jornada de autodescoberta.
+              Você não precisa enfrentar esses desafios emocionais sozinho. Estou com você nesse processo.
             </p>
             
             <div className="info-item reveal" style={{ '--reveal-delay': '110ms' } as CSSProperties}>

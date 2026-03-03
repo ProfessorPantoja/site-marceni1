@@ -59,6 +59,7 @@ Objetivo:
 - Correcao de alinhamento da secao `Formatos de Atendimento` para seguir a mesma linha estrutural das demais secoes no desktop.
 - Credito `Design & Desenvolvimento | Fabio Pantoja` reforcado para aparecer com destaque no desktop (mantido no mobile).
 - Ajuste fino na mesma secao `Formatos de Atendimento`: centralizacao do bloco corrigida com `max-width` + `margin: 0 auto`.
+- Texto de acolhimento da secao `Entre em Contato` atualizado para: `Você não precisa enfrentar esses desafios emocionais sozinho. Estou com você nesse processo.` (decisao conjunta cliente + IA Codex 5.3).
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD
