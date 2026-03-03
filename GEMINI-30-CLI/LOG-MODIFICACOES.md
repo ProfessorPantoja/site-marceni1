@@ -34,6 +34,7 @@ Objetivo:
 - para `public/logo-Marceni-somente-texto.png`
 - Escala da composicao de logo no navbar aumentada (icone + wordmark), com altura da barra ajustada para melhor respiro no mobile.
 - Ajustada referencia da wordmark no `App.tsx` com fallback para JPG em caso de troca de arquivo.
+- Ajuste de escala da wordmark para ganho visual real: passou a escalar por altura (`width: auto`) mantendo proporcao do arquivo.
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD

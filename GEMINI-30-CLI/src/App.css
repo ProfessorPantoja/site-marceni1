@@ -44,8 +44,9 @@
 }
 
 .logo-wordmark {
-  width: clamp(300px, 30vw, 470px);
-  height: clamp(62px, 6vw, 94px);
+  width: auto;
+  max-width: min(52vw, 500px);
+  height: clamp(78px, 7vw, 114px);
   object-fit: contain;
   object-position: center;
   margin-left: -10px;
@@ -428,8 +429,9 @@
   }
 
   .logo-wordmark {
-    width: 232px;
-    height: 62px;
+    width: auto;
+    max-width: 238px;
+    height: 72px;
     padding: 0;
   }
 
