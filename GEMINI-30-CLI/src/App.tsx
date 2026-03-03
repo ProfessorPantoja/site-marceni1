@@ -154,7 +154,15 @@ function App() {
             </div>
             <div className="info-item">
               <MapPin size={20} color="var(--gold)" />
-              <span>Av. José Bento Ribeiro Dantas, 5001, sala 03 - Búzios/RJ</span>
+              <span>
+                Avenida José Bento Ribeiro Dantas, 5001, sala 03
+                <br />
+                (Em cima da loja Engeluz)
+                <br />
+                Bairro: Manguinhos
+                <br />
+                Búzios - RJ
+              </span>
             </div>
           </div>
           <div className="contact-cta">
