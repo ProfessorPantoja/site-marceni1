@@ -24,6 +24,8 @@ Objetivo:
 - wordmark retangular `public/logo-Marceni-somente-texto.jpg` (direita)
 - Hero alterado para usar `public/fundo2.jpg`.
 - Navbar refinada para deixar a composicao das logos menos apertada (mais altura, mais espaco e wordmark com `object-fit: contain`).
+- Botao `Agendar` do topo reduzido para ficar visualmente menor (desktop e mobile).
+- Removida borda/caixa da logo retangular (wordmark) no navbar para visual mais limpo.
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD
