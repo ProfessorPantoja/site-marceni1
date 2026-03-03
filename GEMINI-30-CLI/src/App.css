@@ -94,10 +94,11 @@
 /* Hero Section */
 .hero {
   height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
+  padding: 124px 20px 0;
   position: relative;
   background: linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.7)), url('/fundo2.jpg') center/cover;
 }
@@ -114,6 +115,7 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 0.85rem;
+  white-space: nowrap;
   margin-bottom: 20px;
 }
 
@@ -439,9 +441,19 @@
     padding: 4px 10px;
     font-size: 0.76rem;
   }
+
+  .hero {
+    padding-top: 112px;
+  }
   
   .hero h1 {
     font-size: 2.5rem;
+  }
+
+  .hero-eyebrow {
+    font-size: clamp(0.68rem, 2.7vw, 0.8rem);
+    letter-spacing: 1.4px;
+    margin-bottom: 14px;
   }
   
   .footer-bottom {

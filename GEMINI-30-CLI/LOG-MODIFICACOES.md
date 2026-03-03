@@ -35,6 +35,8 @@ Objetivo:
 - Escala da composicao de logo no navbar aumentada (icone + wordmark), com altura da barra ajustada para melhor respiro no mobile.
 - Ajustada referencia da wordmark no `App.tsx` com fallback para JPG em caso de troca de arquivo.
 - Ajuste de escala da wordmark para ganho visual real: passou a escalar por altura (`width: auto`) mantendo proporcao do arquivo.
+- Hero recebeu compensacao de padding-top para respeitar a navbar fixa e evitar texto escondido logo abaixo do topo.
+- Eyebrow do hero ajustada para manter `CRP 05/67563` na mesma linha no mobile (reducao de `letter-spacing` e `font-size` responsivo).
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD
