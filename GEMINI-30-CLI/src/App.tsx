@@ -46,9 +46,9 @@ function App() {
       <header className="hero">
         <div className="hero-content">
           <span className="hero-eyebrow">Psicóloga & Empresária | CRP 05/67563</span>
-          <h1>Cuidar da sua saúde emocional também faz parte do seu crescimento.</h1>
+          <h1>Empresários fortes constroem negócios fortes.</h1>
           <p>
-            Atendimento psicológico acolhedor para homens e mulheres que enfrentam ansiedade, exaustão e desafios nos relacionamentos.
+            Atendimento estratégico para empresários que enfrentam ansiedade, exaustão e desafios nos relacionamentos.
           </p>
           <div className="hero-actions">
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">

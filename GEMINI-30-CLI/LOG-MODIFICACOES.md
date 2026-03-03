@@ -37,6 +37,7 @@ Objetivo:
 - Ajuste de escala da wordmark para ganho visual real: passou a escalar por altura (`width: auto`) mantendo proporcao do arquivo.
 - Hero recebeu compensacao de padding-top para respeitar a navbar fixa e evitar texto escondido logo abaixo do topo.
 - Eyebrow do hero ajustada para manter `CRP 05/67563` na mesma linha no mobile (reducao de `letter-spacing` e `font-size` responsivo).
+- Headline e subheadline do hero atualizadas para linguagem direta ao publico empresario.
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD
