@@ -46,10 +46,14 @@ function App() {
       <header className="hero">
         <div className="hero-content">
           <span className="hero-eyebrow">Psicóloga & Empresária | CRP 05/67563</span>
-          <h1>Empresários fortes constroem negócios fortes.</h1>
-          <p>
-            Atendimento estratégico para empresários que enfrentam ansiedade, exaustão e desafios nos relacionamentos.
-          </p>
+          <h1>Ajudando homens e mulheres a superar desafios</h1>
+          <ul className="hero-subtopics" aria-label="Principais desafios atendidos">
+            <li>Ansiedade</li>
+            <li>burnout</li>
+            <li>Falta de equilíbrio</li>
+            <li>Desequilíbrio de papéis e energias em relacionamentos</li>
+            <li>Inversão de papéis Familiar</li>
+          </ul>
           <div className="hero-actions">
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
               <MessageCircle size={20} />
@@ -68,6 +72,9 @@ function App() {
         </div>
         <div className="about-grid">
           <div className="about-text">
+            <p className="about-positioning">
+              Psicóloga para Empreendedores Iniciantes e Empresários de Médio Porte
+            </p>
             <p className="highlight">
               Marceni Correa Inácio Coutinho é psicóloga (CRP 05/67563) e atua com foco no atendimento de empreendedores iniciantes e empresários de médio porte.
             </p>
@@ -92,6 +99,16 @@ function App() {
           <h2>Áreas de Atuação</h2>
           <p className="section-subtitle">Ajudando você a superar os desafios modernos e reencontrar o equilíbrio.</p>
           <div className="gold-line"></div>
+        </div>
+        <div className="client-brief-block">
+          <h3>Demandas descritas pela cliente</h3>
+          <ul>
+            <li>Ansiedade</li>
+            <li>Exaustão por trabalho ( burnout)</li>
+            <li>Falta de equilíbrio nas áreas da vida</li>
+            <li>Desequilíbrio de papéis e energias em relacionamentos (mulheres que assumem papéis masculinos e homens que assumem papéis femininos)</li>
+            <li>Inversão de papéis de filhos que assumem o lugar de seus pais</li>
+          </ul>
         </div>
         <div className="demands-grid">
           {[

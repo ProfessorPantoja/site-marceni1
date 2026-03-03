@@ -38,6 +38,10 @@ Objetivo:
 - Hero recebeu compensacao de padding-top para respeitar a navbar fixa e evitar texto escondido logo abaixo do topo.
 - Eyebrow do hero ajustada para manter `CRP 05/67563` na mesma linha no mobile (reducao de `letter-spacing` e `font-size` responsivo).
 - Headline e subheadline do hero atualizadas para linguagem direta ao publico empresario.
+- Hero atualizado com nova headline: `Ajudando homens e mulheres a superar desafios`.
+- Sub do hero reorganizado em lista visual com os temas: `Ansiedade`, `burnout`, `Falta de equilíbrio`, `Desequilíbrio de papéis e energias em relacionamentos` e `Inversão de papéis Familiar`.
+- Frase adicionada na secao Sobre: `Psicóloga para Empreendedores Iniciantes e Empresários de Médio Porte`.
+- Bloco literal incluído em Áreas de Atuação com os 5 itens do pedido da cliente (texto completo).
 
 ## Modelo para proximas entradas
 - Data: YYYY-MM-DD
