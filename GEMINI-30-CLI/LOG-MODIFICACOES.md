@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **66**
+Total atual de itens numerados no log: **68**
 
 ## 2026-03-02
 
@@ -80,9 +80,11 @@ Total atual de itens numerados no log: **66**
 60. Ajuste fino de espaco nas pilulas da Hero: padding interno e line-height reduzidos, com limite de largura para as longas, aproximando borda e texto no mobile.
 61. Correcao de escopo no ajuste das pilulas: desktop voltou ao tamanho anterior e o encaixe de espaco foi mantido apenas no mobile.
 62. Ajuste adicional mobile nas pilulas longas (4, 5 e 6): reducao de `max-width`, `padding` e `line-height` para aproximar ainda mais a borda do texto.
+63. Ajuste fino no mobile: espacamento entre pilulas da Hero aumentado em `+2px` (`gap` de `8px` para `10px`).
+64. Ajuste fino no mobile: pequeno aumento do espacamento entre linhas internas das pilulas para melhorar leitura dos textos quebrados.
 
 ## Modelo para proximas entradas
-63. Data: YYYY-MM-DD
-64. O que mudou:
-65. Onde mudou (arquivo/area):
-66. Motivo da mudanca:
+65. Data: YYYY-MM-DD
+66. O que mudou:
+67. Onde mudou (arquivo/area):
+68. Motivo da mudanca:
