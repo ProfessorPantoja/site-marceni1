@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **95**
+Total atual de itens numerados no log: **99**
 
 ## 2026-03-02
 
@@ -125,7 +125,14 @@ Total atual de itens numerados no log: **95**
 91. Ajuste aplicado somente no mobile com video, sem impacto no visual do desktop.
 
 ## Modelo para proximas entradas
-92. Data: YYYY-MM-DD
-93. O que mudou:
-94. Onde mudou (arquivo/area):
-95. Motivo da mudanca:
+### RASTREIO QR - LINK DO CARTAO
+92. Criado endpoint `/cartao` para uso em QR Code de cartao fisico.
+93. `/cartao` redireciona para `/?utm_source=cartao&utm_medium=offline&utm_campaign=cartao_fisico`.
+94. Implementacao feita em arquivo estatico: `public/cartao/index.html`.
+95. Objetivo: permitir rastreio claro de acessos vindos do cartao fisico.
+
+## Modelo para proximas entradas
+96. Data: YYYY-MM-DD
+97. O que mudou:
+98. Onde mudou (arquivo/area):
+99. Motivo da mudanca:
