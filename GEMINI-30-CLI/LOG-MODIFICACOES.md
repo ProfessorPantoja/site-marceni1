@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **83**
+Total atual de itens numerados no log: **87**
 
 ## 2026-03-02
 
@@ -106,8 +106,14 @@ Total atual de itens numerados no log: **83**
 78. Escurecimento aplicado somente no contexto `hero-mobile-video`, mantendo desktop com o mesmo visual baseado em imagem.
 79. Encerramento do projeto registrado apos configuracao de DNS no dominio `marcenicorrea.com.br`.
 
+### AJUSTES FINAIS - COMPARTILHAMENTO E IDENTIDADE
+80. Adicionadas metatags Open Graph/Twitter no `index.html` para preview ao colar o link no WhatsApp e outras redes.
+81. Definido `og:image` para `https://marcenicorrea.com.br/logo-marceni.png` e `og:url` para `https://marcenicorrea.com.br/`.
+82. Favicon atualizado de `vite.svg` para `logo-marceni-MC-512x512.png` (incluindo `apple-touch-icon`).
+83. Overlay do video da Hero mobile reforcado levemente para reduzir mais a intensidade da animacao.
+
 ## Modelo para proximas entradas
-80. Data: YYYY-MM-DD
-81. O que mudou:
-82. Onde mudou (arquivo/area):
-83. Motivo da mudanca:
+84. Data: YYYY-MM-DD
+85. O que mudou:
+86. Onde mudou (arquivo/area):
+87. Motivo da mudanca:
