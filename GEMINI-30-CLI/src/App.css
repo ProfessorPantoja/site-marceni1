@@ -813,7 +813,22 @@
 
   .hero-subtopics li {
     font-size: 0.83rem;
-    padding: 7px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: min(88vw, 350px);
+    line-height: 1.14;
+    padding: 4px 9px;
+  }
+
+  /* Ajuste fino das pílulas longas no mobile para reduzir área vazia interna */
+  .hero-subtopics li:nth-child(4),
+  .hero-subtopics li:nth-child(5),
+  .hero-subtopics li:nth-child(6) {
+    max-width: min(84vw, 314px);
+    padding: 3px 8px;
+    line-height: 1.12;
   }
 
   .client-brief-block {

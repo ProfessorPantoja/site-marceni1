@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **63**
+Total atual de itens numerados no log: **66**
 
 ## 2026-03-02
 
@@ -77,9 +77,12 @@ Total atual de itens numerados no log: **63**
 57. Textos longos da Hero receberam desdobramento visual para manter clareza sem perder o texto integral.
 58. Hero refinada com separacao em duas caixinhas distintas: `Desequilíbrio de papéis e energias em relacionamentos` e `Mulheres que assumem papéis masculinos e homens que assumem papéis femininos`.
 59. Credencial `Psicóloga & Empresária | CRP 05/67563` movida para abaixo da foto da Marceni na secao Sobre.
+60. Ajuste fino de espaco nas pilulas da Hero: padding interno e line-height reduzidos, com limite de largura para as longas, aproximando borda e texto no mobile.
+61. Correcao de escopo no ajuste das pilulas: desktop voltou ao tamanho anterior e o encaixe de espaco foi mantido apenas no mobile.
+62. Ajuste adicional mobile nas pilulas longas (4, 5 e 6): reducao de `max-width`, `padding` e `line-height` para aproximar ainda mais a borda do texto.
 
 ## Modelo para proximas entradas
-60. Data: YYYY-MM-DD
-61. O que mudou:
-62. Onde mudou (arquivo/area):
-63. Motivo da mudanca:
+63. Data: YYYY-MM-DD
+64. O que mudou:
+65. Onde mudou (arquivo/area):
+66. Motivo da mudanca:
