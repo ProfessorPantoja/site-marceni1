@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **91**
+Total atual de itens numerados no log: **95**
 
 ## 2026-03-02
 
@@ -118,8 +118,14 @@ Total atual de itens numerados no log: **91**
 86. Altura das pilulas mobile aumentada em aproximadamente `+2px` para melhorar legibilidade visual.
 87. Ajustes aplicados exclusivamente na media query mobile para preservar o layout do PC.
 
+### AJUSTE FINAL - ESCURECIMENTO DO VIDEO HERO
+88. Overlay da Hero mobile reforcado novamente para reduzir mais a claridade da animacao de fundo.
+89. Gradiente do `hero-mobile-video` ajustado para niveis de preto mais altos em todo o eixo vertical.
+90. Opacidade do video no estado `is-ready` reduzida para `0.8`, suavizando o brilho geral do fundo.
+91. Ajuste aplicado somente no mobile com video, sem impacto no visual do desktop.
+
 ## Modelo para proximas entradas
-88. Data: YYYY-MM-DD
-89. O que mudou:
-90. Onde mudou (arquivo/area):
-91. Motivo da mudanca:
+92. Data: YYYY-MM-DD
+93. O que mudou:
+94. Onde mudou (arquivo/area):
+95. Motivo da mudanca:

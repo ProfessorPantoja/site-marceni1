@@ -283,10 +283,14 @@
 .hero.hero-mobile-video .hero-overlay {
   background: linear-gradient(
     to bottom,
-    rgba(8, 8, 8, 0.26) 0%,
-    rgba(8, 8, 8, 0.54) 56%,
-    rgba(8, 8, 8, 0.64) 100%
+    rgba(8, 8, 8, 0.34) 0%,
+    rgba(8, 8, 8, 0.62) 56%,
+    rgba(8, 8, 8, 0.72) 100%
   );
+}
+
+.hero.hero-mobile-video .hero-bg-video.is-ready {
+  opacity: 0.8;
 }
 
 .hero::before {
