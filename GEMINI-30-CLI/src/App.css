@@ -909,16 +909,16 @@
   .hero-pill-core {
     font-size: 0.83rem;
     max-width: min(88vw, 350px);
-    line-height: 1.18;
-    padding: 4px 9px;
+    line-height: 1.2;
+    padding: 6px 9px;
   }
 
   .hero-subtopics li:nth-child(4) .hero-pill-core,
   .hero-subtopics li:nth-child(5) .hero-pill-core,
   .hero-subtopics li:nth-child(6) .hero-pill-core {
     max-width: min(80vw, 292px);
-    padding: 3px 6px;
-    line-height: 1.2;
+    padding: 6px 8px;
+    line-height: 1.24;
   }
 
   .client-brief-block {

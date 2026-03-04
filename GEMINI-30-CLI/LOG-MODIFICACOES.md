@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **87**
+Total atual de itens numerados no log: **91**
 
 ## 2026-03-02
 
@@ -112,8 +112,14 @@ Total atual de itens numerados no log: **87**
 82. Favicon atualizado de `vite.svg` para `logo-marceni-MC-512x512.png` (incluindo `apple-touch-icon`).
 83. Overlay do video da Hero mobile reforcado levemente para reduzir mais a intensidade da animacao.
 
+### AJUSTE FINO FINAL - PILULAS MOBILE
+84. Refinada largura das pilulas longas (4, 5 e 6) para reduzir area lateral vazia sem impactar o desktop.
+85. Adicionado respiro interno nas pilulas mobile com aumento sutil de `padding` e `line-height`.
+86. Altura das pilulas mobile aumentada em aproximadamente `+2px` para melhorar legibilidade visual.
+87. Ajustes aplicados exclusivamente na media query mobile para preservar o layout do PC.
+
 ## Modelo para proximas entradas
-84. Data: YYYY-MM-DD
-85. O que mudou:
-86. Onde mudou (arquivo/area):
-87. Motivo da mudanca:
+88. Data: YYYY-MM-DD
+89. O que mudou:
+90. Onde mudou (arquivo/area):
+91. Motivo da mudanca:
