@@ -14,6 +14,16 @@ import './App.css';
 
 function App() {
   const whatsappUrl = "https://wa.me/5522998946111?text=Oi%2C%20Marceni%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20como%20funciona%20o%20atendimento.";
+  const heroTopics = [
+    { label: 'Ansiedade' },
+    { label: 'Exaustão por trabalho', tooltip: 'burnout' },
+    { label: 'Falta de equilíbrio nas áreas da vida' },
+    {
+      label: 'Desequilíbrio de papéis e energias em relacionamentos',
+      detail: 'Mulheres que assumem papéis masculinos e homens que assumem papéis femininos'
+    },
+    { label: 'Inversão de papéis de filhos que assumem o lugar de seus pais' }
+  ];
 
   useEffect(() => {
     const animatedElements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
@@ -75,14 +85,18 @@ function App() {
       {/* Hero Section */}
       <header className="hero">
         <div className="hero-content hero-enter">
-          <span className="hero-eyebrow">Psicóloga & Empresária | CRP 05/67563</span>
           <h1>Ajudando homens e mulheres a superar desafios</h1>
           <ul className="hero-subtopics" aria-label="Principais desafios atendidos">
-            <li>Ansiedade</li>
-            <li>burnout</li>
-            <li>Falta de equilíbrio</li>
-            <li>Desequilíbrio de papéis e energias em relacionamentos</li>
-            <li>Inversão de papéis Familiar</li>
+            {heroTopics.map((topic, index) => (
+              <li
+                key={index}
+                title={topic.tooltip}
+                className={topic.detail ? 'hero-topic-expanded' : ''}
+              >
+                <span>{topic.label}</span>
+                {topic.detail ? <small>{topic.detail}</small> : null}
+              </li>
+            ))}
           </ul>
           <div className="hero-actions">
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
@@ -102,6 +116,7 @@ function App() {
         </div>
         <div className="about-grid">
           <div className="about-text reveal">
+            <p className="about-credential">Psicóloga & Empresária | CRP 05/67563</p>
             <p className="about-positioning">
               Psicóloga para Empreendedores Iniciantes e Empresários de Médio Porte
             </p>

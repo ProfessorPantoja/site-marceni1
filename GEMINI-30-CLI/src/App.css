@@ -250,40 +250,25 @@
   z-index: 1;
 }
 
-.hero-enter .hero-eyebrow {
-  opacity: 0;
-  animation: heroItemIn 0.72s var(--motion-ease) 0.12s forwards;
-}
-
 .hero-enter h1 {
   opacity: 0;
-  animation: heroItemIn 0.8s var(--motion-ease) 0.24s forwards;
+  animation: heroItemIn 0.8s var(--motion-ease) 0.16s forwards;
 }
 
 .hero-enter .hero-subtopics {
   opacity: 0;
-  animation: heroItemIn 0.82s var(--motion-ease) 0.35s forwards;
+  animation: heroItemIn 0.82s var(--motion-ease) 0.3s forwards;
 }
 
 .hero-enter .hero-actions {
   opacity: 0;
-  animation: heroItemIn 0.72s var(--motion-ease) 0.5s forwards;
-}
-
-.hero-eyebrow {
-  display: block;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 0.85rem;
-  white-space: nowrap;
-  margin-bottom: 20px;
+  animation: heroItemIn 0.72s var(--motion-ease) 0.45s forwards;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
   line-height: 1.1;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
 .hero p {
@@ -314,6 +299,29 @@
   padding: 8px 14px;
   background: rgba(0, 0, 0, 0.25);
   animation: chipIn 0.54s var(--motion-ease) both;
+}
+
+.hero-subtopics li[title] {
+  cursor: help;
+}
+
+.hero-subtopics li > span {
+  display: block;
+}
+
+.hero-topic-expanded {
+  max-width: min(96vw, 700px);
+  border-radius: 16px !important;
+  padding: 11px 16px !important;
+  text-align: left;
+}
+
+.hero-topic-expanded small {
+  display: block;
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.86rem;
+  line-height: 1.45;
 }
 
 .hero-subtopics li:nth-child(1) { animation-delay: 0.46s; }
@@ -404,6 +412,15 @@
   font-weight: 700;
   margin-bottom: 14px !important;
   text-transform: none;
+}
+
+.about-credential {
+  display: inline-block;
+  margin-bottom: 12px !important;
+  font-size: 0.86rem !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold) !important;
 }
 
 .image-placeholder {
@@ -795,13 +812,7 @@
   }
   
   .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-eyebrow {
-    font-size: clamp(0.68rem, 2.7vw, 0.8rem);
-    letter-spacing: 1.4px;
-    margin-bottom: 14px;
+    font-size: 2.2rem;
   }
 
   .hero-subtopics {
@@ -812,6 +823,14 @@
   .hero-subtopics li {
     font-size: 0.83rem;
     padding: 7px 10px;
+  }
+
+  .hero-topic-expanded {
+    text-align: center;
+  }
+
+  .hero-topic-expanded small {
+    font-size: 0.8rem;
   }
 
   .client-brief-block {
@@ -841,7 +860,6 @@
   .navbar,
   .logo-icon,
   .hero::before,
-  .hero-enter .hero-eyebrow,
   .hero-enter h1,
   .hero-enter .hero-subtopics,
   .hero-enter .hero-actions,

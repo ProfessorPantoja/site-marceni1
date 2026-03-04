@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **53**
+Total atual de itens numerados no log: **61**
 
 ## 2026-03-02
 
@@ -66,8 +66,18 @@ Total atual de itens numerados no log: **53**
 48. Reversao solicitada: texto de acolhimento da secao `Entre em Contato` voltou para `Estou pronta para te acompanhar nessa jornada de autodescoberta.`.
 49. Ajuste de direcionamento: no bloco de demandas, titulo alterado para `Principais Demandas de Atendimento` e frase de acolhimento inserida no proprio bloco.
 
+### SNAPSHOT HERO - MARCO ESTRATEGICO
+50. Data/hora do snapshot: **03/03/2026 22:08**.
+51. Destaque: este snapshot marca rodada prioritaria de refinamento da `Hero Section`.
+52. Removido da Hero: `Psicóloga & Empresária | CRP 05/67563`.
+53. Reposicionado fora da Hero (secao Sobre): `Psicóloga & Empresária | CRP 05/67563`.
+54. Headline principal da Hero reduzida para melhorar respiro visual e leitura.
+55. Lista da Hero atualizada com os textos completos pedidos pela cliente (sem resumo).
+56. Item de exaustao na Hero alterado para `Exaustão por trabalho`, com `burnout` exibido no hover.
+57. Textos longos da Hero receberam desdobramento visual para manter clareza sem perder o texto integral.
+
 ## Modelo para proximas entradas
-50. Data: YYYY-MM-DD
-51. O que mudou:
-52. Onde mudou (arquivo/area):
-53. Motivo da mudanca:
+58. Data: YYYY-MM-DD
+59. O que mudou:
+60. Onde mudou (arquivo/area):
+61. Motivo da mudanca:
