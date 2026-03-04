@@ -297,10 +297,15 @@
 
 .hero.hero-mobile-video .hero-bg-video {
   display: block;
+  transition: opacity 280ms ease;
 }
 
 .hero.hero-mobile-video::before {
   opacity: 0.6;
+}
+
+.hero.hero-mobile-video .hero-bg-video.is-loop-fading {
+  opacity: 0;
 }
 
 .hero::before {

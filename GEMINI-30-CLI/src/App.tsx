@@ -17,7 +17,9 @@ function App() {
   const heroRef = useRef<HTMLElement | null>(null);
   const [isMobileHeroVideo, setIsMobileHeroVideo] = useState(false);
   const [heroVideoReady, setHeroVideoReady] = useState(false);
+  const [heroVideoLoopFading, setHeroVideoLoopFading] = useState(false);
   const heroVideoPlaybackRate = 0.4;
+  const heroVideoLoopFadeThreshold = 0.985;
   const applyHeroVideoSpeed = (video: HTMLVideoElement) => {
     video.defaultPlaybackRate = heroVideoPlaybackRate;
     if (video.playbackRate !== heroVideoPlaybackRate) {
@@ -87,6 +89,7 @@ function App() {
       setIsMobileHeroVideo(shouldUseVideo);
       if (!shouldUseVideo) {
         setHeroVideoReady(false);
+        setHeroVideoLoopFading(false);
       }
     };
 
@@ -269,10 +272,9 @@ function App() {
       <header className={`hero${isMobileHeroVideo ? ' hero-mobile-video' : ''}`} ref={heroRef}>
         {isMobileHeroVideo ? (
           <video
-            className={`hero-bg-video${heroVideoReady ? ' is-ready' : ''}`}
+            className={`hero-bg-video${heroVideoReady ? ' is-ready' : ''}${heroVideoLoopFading ? ' is-loop-fading' : ''}`}
             autoPlay
             muted
-            loop
             playsInline
             preload="metadata"
             poster="/fundo2.jpg"
@@ -286,6 +288,23 @@ function App() {
             }}
             onPlay={(event) => {
               applyHeroVideoSpeed(event.currentTarget);
+            }}
+            onTimeUpdate={(event) => {
+              const video = event.currentTarget;
+              if (!video.duration || heroVideoLoopFading) return;
+              const progress = video.currentTime / video.duration;
+              if (progress >= heroVideoLoopFadeThreshold) {
+                setHeroVideoLoopFading(true);
+              }
+            }}
+            onEnded={(event) => {
+              const video = event.currentTarget;
+              applyHeroVideoSpeed(video);
+              video.currentTime = 0;
+              void video.play().catch(() => null);
+              window.setTimeout(() => {
+                setHeroVideoLoopFading(false);
+              }, 120);
             }}
           >
             <source src="/video-fundo.mp4" type="video/mp4" />
