@@ -17,6 +17,13 @@ function App() {
   const heroRef = useRef<HTMLElement | null>(null);
   const [isMobileHeroVideo, setIsMobileHeroVideo] = useState(false);
   const [heroVideoReady, setHeroVideoReady] = useState(false);
+  const heroVideoPlaybackRate = 0.4;
+  const applyHeroVideoSpeed = (video: HTMLVideoElement) => {
+    video.defaultPlaybackRate = heroVideoPlaybackRate;
+    if (video.playbackRate !== heroVideoPlaybackRate) {
+      video.playbackRate = heroVideoPlaybackRate;
+    }
+  };
   const heroTopicsBase = [
     { label: 'Ansiedade' },
     { label: 'Exaustão por trabalho', tooltip: 'burnout' },
@@ -269,8 +276,17 @@ function App() {
             playsInline
             preload="metadata"
             poster="/fundo2.jpg"
-            onLoadedData={() => setHeroVideoReady(true)}
-            onCanPlay={() => setHeroVideoReady(true)}
+            onLoadedData={(event) => {
+              applyHeroVideoSpeed(event.currentTarget);
+              setHeroVideoReady(true);
+            }}
+            onCanPlay={(event) => {
+              applyHeroVideoSpeed(event.currentTarget);
+              setHeroVideoReady(true);
+            }}
+            onPlay={(event) => {
+              applyHeroVideoSpeed(event.currentTarget);
+            }}
           >
             <source src="/video-fundo.mp4" type="video/mp4" />
           </video>
