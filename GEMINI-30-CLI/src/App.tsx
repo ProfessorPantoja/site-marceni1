@@ -1,4 +1,4 @@
-import { useEffect, type CSSProperties } from 'react';
+import { useEffect, useMemo, type CSSProperties } from 'react';
 import { 
   MessageCircle, 
   Instagram, 
@@ -14,7 +14,7 @@ import './App.css';
 
 function App() {
   const whatsappUrl = "https://wa.me/5522998946111?text=Oi%2C%20Marceni%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20como%20funciona%20o%20atendimento.";
-  const heroTopics = [
+  const heroTopicsBase = [
     { label: 'Ansiedade' },
     { label: 'Exaustão por trabalho', tooltip: 'burnout' },
     { label: 'Falta de equilíbrio nas áreas da vida' },
@@ -22,6 +22,50 @@ function App() {
     { label: 'Mulheres que assumem papéis masculinos e homens que assumem papéis femininos' },
     { label: 'Inversão de papéis de filhos que assumem o lugar de seus pais' }
   ];
+  const heroTopics = useMemo(() => {
+    const radialVectors = [
+      { x: -11, y: -7 },
+      { x: 11, y: -7 },
+      { x: 0, y: -10 },
+      { x: -12, y: 0 },
+      { x: 12, y: 0 },
+      { x: 0, y: 10 }
+    ];
+    const seeded = (seed: number) => {
+      const value = Math.sin(seed * 97.13) * 10000;
+      return value - Math.floor(value);
+    };
+
+    return heroTopicsBase.map((topic, index) => {
+      const vector = radialVectors[index] ?? { x: 0, y: 0 };
+      const jitterA = (seeded(index + 11) - 0.5) * 3.4;
+      const jitterB = (seeded(index + 29) - 0.5) * 3.4;
+      const x1 = vector.x + jitterA;
+      const y1 = vector.y + jitterB;
+      const x2 = vector.x * 0.45 - jitterB;
+      const y2 = vector.y * 0.45 + jitterA;
+      const x3 = -x1 * 0.28;
+      const y3 = -y1 * 0.28;
+      const rot = (seeded(index + 67) - 0.5) * 1.4;
+      const duration = 7 + seeded(index + 89) * 2.8;
+      const delay = seeded(index + 113) * 1.9;
+
+      return {
+        ...topic,
+        motion: {
+          x1,
+          y1,
+          x2,
+          y2,
+          x3,
+          y3,
+          rot,
+          duration,
+          delay
+        }
+      };
+    });
+  }, []);
 
   useEffect(() => {
     const animatedElements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
@@ -86,7 +130,23 @@ function App() {
           <h1>Ajudando homens e mulheres a superar desafios</h1>
           <ul className="hero-subtopics" aria-label="Principais desafios atendidos">
             {heroTopics.map((topic, index) => (
-              <li key={index} title={topic.tooltip}>
+              <li
+                key={index}
+                title={topic.tooltip}
+                style={
+                  {
+                    '--drift-x-1': `${topic.motion.x1.toFixed(2)}px`,
+                    '--drift-y-1': `${topic.motion.y1.toFixed(2)}px`,
+                    '--drift-x-2': `${topic.motion.x2.toFixed(2)}px`,
+                    '--drift-y-2': `${topic.motion.y2.toFixed(2)}px`,
+                    '--drift-x-3': `${topic.motion.x3.toFixed(2)}px`,
+                    '--drift-y-3': `${topic.motion.y3.toFixed(2)}px`,
+                    '--drift-rot': `${topic.motion.rot.toFixed(2)}deg`,
+                    '--drift-duration': `${topic.motion.duration.toFixed(2)}s`,
+                    '--drift-delay': `${topic.motion.delay.toFixed(2)}s`
+                  } as CSSProperties
+                }
+              >
                 <span>{topic.label}</span>
               </li>
             ))}

@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **68**
+Total atual de itens numerados no log: **72**
 
 ## 2026-03-02
 
@@ -83,8 +83,14 @@ Total atual de itens numerados no log: **68**
 63. Ajuste fino no mobile: espacamento entre pilulas da Hero aumentado em `+2px` (`gap` de `8px` para `10px`).
 64. Ajuste fino no mobile: pequeno aumento do espacamento entre linhas internas das pilulas para melhorar leitura dos textos quebrados.
 
+### SNAPSHOT HERO - ANIMACAO ORBITAL PREMIUM
+65. Data/hora do checkpoint: **03/03/2026 22:45**.
+66. Marco: inicio da fase de animacao premium nas pilulas da Hero, com foco em movimento suave e assinatura visual.
+67. Pilulas da Hero passam a realizar deslocamento radial (indo para fora e retornando ao centro) em loop continuo.
+68. Movimento com variacao por item (duracao, atraso, vetor e rotacao), gerando aleatoriedade controlada e comportamento mais organico.
+
 ## Modelo para proximas entradas
-65. Data: YYYY-MM-DD
-66. O que mudou:
-67. Onde mudou (arquivo/area):
-68. Motivo da mudanca:
+69. Data: YYYY-MM-DD
+70. O que mudou:
+71. Onde mudou (arquivo/area):
+72. Motivo da mudanca:

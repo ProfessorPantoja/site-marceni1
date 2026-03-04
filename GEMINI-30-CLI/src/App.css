@@ -64,6 +64,22 @@
   }
 }
 
+@keyframes pillOrbitDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  24% {
+    transform: translate3d(var(--drift-x-1), var(--drift-y-1), 0) rotate(var(--drift-rot)) scale(1.015);
+  }
+  56% {
+    transform: translate3d(var(--drift-x-2), var(--drift-y-2), 0) rotate(calc(var(--drift-rot) * -0.8)) scale(0.996);
+  }
+  78% {
+    transform: translate3d(var(--drift-x-3), var(--drift-y-3), 0) rotate(calc(var(--drift-rot) * 0.35)) scale(1.004);
+  }
+}
+
 @keyframes pulseGlow {
   0%,
   100% {
@@ -298,7 +314,19 @@
   border-radius: 999px;
   padding: 8px 14px;
   background: rgba(0, 0, 0, 0.25);
-  animation: chipIn 0.54s var(--motion-ease) both;
+  --drift-x-1: 0px;
+  --drift-y-1: 0px;
+  --drift-x-2: 0px;
+  --drift-y-2: 0px;
+  --drift-x-3: 0px;
+  --drift-y-3: 0px;
+  --drift-rot: 0deg;
+  --drift-duration: 8.6s;
+  --drift-delay: 0s;
+  will-change: transform;
+  animation:
+    chipIn 0.54s var(--motion-ease) both,
+    pillOrbitDrift var(--drift-duration) cubic-bezier(0.38, 0.05, 0.21, 1) calc(1.05s + var(--drift-delay)) infinite;
 }
 
 .hero-subtopics li[title] {
