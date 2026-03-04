@@ -916,9 +916,9 @@
   .hero-subtopics li:nth-child(4) .hero-pill-core,
   .hero-subtopics li:nth-child(5) .hero-pill-core,
   .hero-subtopics li:nth-child(6) .hero-pill-core {
-    max-width: min(84vw, 314px);
-    padding: 3px 8px;
-    line-height: 1.18;
+    max-width: min(80vw, 292px);
+    padding: 3px 6px;
+    line-height: 1.2;
   }
 
   .client-brief-block {
