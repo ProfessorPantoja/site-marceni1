@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **74**
+Total atual de itens numerados no log: **75**
 
 ## 2026-03-02
 
@@ -92,9 +92,10 @@ Total atual de itens numerados no log: **74**
 ### SNAPSHOT HERO - INTERACAO COM CURSOR
 69. Pilulas da Hero agora reagem ao mouse e sao suavemente puxadas na direcao do cursor dentro da area da Hero.
 70. Interacao implementada com suavizacao (lerp), influencia por distancia e intensidade variavel por pilula (aleatoriedade controlada), mantendo comportamento premium.
+71. Foto da Marceni atualizada para nova versao em `webp` na secao Sobre (`/quem-e-marceni-1.webp`).
 
 ## Modelo para proximas entradas
-71. Data: YYYY-MM-DD
-72. O que mudou:
-73. Onde mudou (arquivo/area):
-74. Motivo da mudanca:
+72. Data: YYYY-MM-DD
+73. O que mudou:
+74. Onde mudou (arquivo/area):
+75. Motivo da mudanca:

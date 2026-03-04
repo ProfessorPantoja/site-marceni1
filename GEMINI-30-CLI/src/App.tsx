@@ -293,7 +293,7 @@ function App() {
           </div>
           <div className="about-image reveal" style={{ '--reveal-delay': '120ms' } as CSSProperties}>
             <div className="image-placeholder">
-              <img src="/quem-e-marceni-1.png" alt="Marceni Correa Inacio Coutinho" loading="lazy" />
+              <img src="/quem-e-marceni-1.webp" alt="Marceni Correa Inacio Coutinho" loading="lazy" />
             </div>
             <p className="about-credential about-credential-photo">Psicóloga & Empresária | CRP 05/67563</p>
           </div>
