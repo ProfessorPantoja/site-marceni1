@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **72**
+Total atual de itens numerados no log: **74**
 
 ## 2026-03-02
 
@@ -89,8 +89,12 @@ Total atual de itens numerados no log: **72**
 67. Pilulas da Hero passam a realizar deslocamento radial (indo para fora e retornando ao centro) em loop continuo.
 68. Movimento com variacao por item (duracao, atraso, vetor e rotacao), gerando aleatoriedade controlada e comportamento mais organico.
 
+### SNAPSHOT HERO - INTERACAO COM CURSOR
+69. Pilulas da Hero agora reagem ao mouse e sao suavemente puxadas na direcao do cursor dentro da area da Hero.
+70. Interacao implementada com suavizacao (lerp), influencia por distancia e intensidade variavel por pilula (aleatoriedade controlada), mantendo comportamento premium.
+
 ## Modelo para proximas entradas
-69. Data: YYYY-MM-DD
-70. O que mudou:
-71. Onde mudou (arquivo/area):
-72. Motivo da mudanca:
+71. Data: YYYY-MM-DD
+72. O que mudou:
+73. Onde mudou (arquivo/area):
+74. Motivo da mudanca:

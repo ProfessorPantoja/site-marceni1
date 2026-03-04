@@ -1,4 +1,4 @@
-import { useEffect, useMemo, type CSSProperties } from 'react';
+import { useEffect, useMemo, useRef, type CSSProperties } from 'react';
 import { 
   MessageCircle, 
   Instagram, 
@@ -14,6 +14,7 @@ import './App.css';
 
 function App() {
   const whatsappUrl = "https://wa.me/5522998946111?text=Oi%2C%20Marceni%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20como%20funciona%20o%20atendimento.";
+  const heroRef = useRef<HTMLElement | null>(null);
   const heroTopicsBase = [
     { label: 'Ansiedade' },
     { label: 'Exaustão por trabalho', tooltip: 'burnout' },
@@ -49,6 +50,7 @@ function App() {
       const rot = (seeded(index + 67) - 0.5) * 1.4;
       const duration = 7 + seeded(index + 89) * 2.8;
       const delay = seeded(index + 113) * 1.9;
+      const pull = 0.74 + seeded(index + 131) * 0.58;
 
       return {
         ...topic,
@@ -61,7 +63,8 @@ function App() {
           y3,
           rot,
           duration,
-          delay
+          delay,
+          pull
         }
       };
     });
@@ -96,6 +99,107 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+    if (prefersReducedMotion || !hasFinePointer) {
+      return;
+    }
+
+    const pills = Array.from(hero.querySelectorAll<HTMLElement>('.hero-subtopics li'));
+    if (!pills.length) return;
+
+    type PullState = { x: number; y: number; targetX: number; targetY: number };
+    const pullStates: PullState[] = pills.map(() => ({ x: 0, y: 0, targetX: 0, targetY: 0 }));
+    const maxPullDistance = 9.5;
+    let rafId: number | null = null;
+
+    const render = () => {
+      rafId = null;
+      let hasPendingMotion = false;
+
+      for (let index = 0; index < pills.length; index += 1) {
+        const state = pullStates[index];
+        state.x += (state.targetX - state.x) * 0.12;
+        state.y += (state.targetY - state.y) * 0.12;
+
+        pills[index].style.setProperty('--mouse-pull-x', `${state.x.toFixed(2)}px`);
+        pills[index].style.setProperty('--mouse-pull-y', `${state.y.toFixed(2)}px`);
+
+        if (
+          Math.abs(state.targetX - state.x) > 0.04 ||
+          Math.abs(state.targetY - state.y) > 0.04
+        ) {
+          hasPendingMotion = true;
+        }
+      }
+
+      if (hasPendingMotion) {
+        rafId = window.requestAnimationFrame(render);
+      }
+    };
+
+    const queueRender = () => {
+      if (rafId === null) {
+        rafId = window.requestAnimationFrame(render);
+      }
+    };
+
+    const updateTargets = (clientX: number, clientY: number) => {
+      const heroRect = hero.getBoundingClientRect();
+      const pointerX = ((clientX - heroRect.left) / heroRect.width) * 2 - 1;
+      const pointerY = ((clientY - heroRect.top) / heroRect.height) * 2 - 1;
+
+      for (let index = 0; index < pills.length; index += 1) {
+        const pill = pills[index];
+        const pillRect = pill.getBoundingClientRect();
+        const pillX = ((pillRect.left + pillRect.width / 2 - heroRect.left) / heroRect.width) * 2 - 1;
+        const pillY = ((pillRect.top + pillRect.height / 2 - heroRect.top) / heroRect.height) * 2 - 1;
+
+        const directionX = pointerX - pillX;
+        const directionY = pointerY - pillY;
+        const distance = Math.hypot(directionX, directionY) || 1;
+        const normalizedX = directionX / distance;
+        const normalizedY = directionY / distance;
+        const influence = Math.max(0, 1 - distance / 1.7);
+        const pullFactor = Number.parseFloat(pill.dataset.pull ?? '1');
+        const pull = maxPullDistance * influence * pullFactor;
+
+        pullStates[index].targetX = normalizedX * pull;
+        pullStates[index].targetY = normalizedY * pull;
+      }
+
+      queueRender();
+    };
+
+    const handlePointerMove = (event: PointerEvent) => {
+      updateTargets(event.clientX, event.clientY);
+    };
+
+    const releaseToCenter = () => {
+      pullStates.forEach((state) => {
+        state.targetX = 0;
+        state.targetY = 0;
+      });
+      queueRender();
+    };
+
+    hero.addEventListener('pointermove', handlePointerMove);
+    hero.addEventListener('pointerleave', releaseToCenter);
+
+    return () => {
+      hero.removeEventListener('pointermove', handlePointerMove);
+      hero.removeEventListener('pointerleave', releaseToCenter);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
+  }, [heroTopics.length]);
+
   return (
     <div className="app-container">
       {/* Navbar */}
@@ -125,7 +229,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <header className="hero">
+      <header className="hero" ref={heroRef}>
         <div className="hero-content hero-enter">
           <h1>Ajudando homens e mulheres a superar desafios</h1>
           <ul className="hero-subtopics" aria-label="Principais desafios atendidos">
@@ -133,8 +237,11 @@ function App() {
               <li
                 key={index}
                 title={topic.tooltip}
+                data-pull={topic.motion.pull.toFixed(2)}
                 style={
                   {
+                    '--mouse-pull-x': '0px',
+                    '--mouse-pull-y': '0px',
                     '--drift-x-1': `${topic.motion.x1.toFixed(2)}px`,
                     '--drift-y-1': `${topic.motion.y1.toFixed(2)}px`,
                     '--drift-x-2': `${topic.motion.x2.toFixed(2)}px`,
@@ -147,7 +254,9 @@ function App() {
                   } as CSSProperties
                 }
               >
-                <span>{topic.label}</span>
+                <span className="hero-pill-core">
+                  <span>{topic.label}</span>
+                </span>
               </li>
             ))}
           </ul>

@@ -308,8 +308,19 @@
 }
 
 .hero-subtopics li {
+  --mouse-pull-x: 0px;
+  --mouse-pull-y: 0px;
+  transform: translate3d(var(--mouse-pull-x), var(--mouse-pull-y), 0);
+  will-change: transform;
+}
+
+.hero-pill-core {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.92);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
   border: 1px solid rgba(212, 175, 55, 0.38);
   border-radius: 999px;
   padding: 8px 14px;
@@ -323,26 +334,29 @@
   --drift-rot: 0deg;
   --drift-duration: 8.6s;
   --drift-delay: 0s;
-  will-change: transform;
   animation:
     chipIn 0.54s var(--motion-ease) both,
     pillOrbitDrift var(--drift-duration) cubic-bezier(0.38, 0.05, 0.21, 1) calc(1.05s + var(--drift-delay)) infinite;
 }
 
 .hero-subtopics li[title] {
+  cursor: default;
+}
+
+.hero-subtopics li[title] .hero-pill-core {
   cursor: help;
 }
 
-.hero-subtopics li > span {
+.hero-pill-core > span {
   display: block;
 }
 
-.hero-subtopics li:nth-child(1) { animation-delay: 0.46s; }
-.hero-subtopics li:nth-child(2) { animation-delay: 0.52s; }
-.hero-subtopics li:nth-child(3) { animation-delay: 0.58s; }
-.hero-subtopics li:nth-child(4) { animation-delay: 0.64s; }
-.hero-subtopics li:nth-child(5) { animation-delay: 0.7s; }
-.hero-subtopics li:nth-child(6) { animation-delay: 0.76s; }
+.hero-subtopics li:nth-child(1) .hero-pill-core { animation-delay: 0.46s, calc(1.05s + var(--drift-delay)); }
+.hero-subtopics li:nth-child(2) .hero-pill-core { animation-delay: 0.52s, calc(1.05s + var(--drift-delay)); }
+.hero-subtopics li:nth-child(3) .hero-pill-core { animation-delay: 0.58s, calc(1.05s + var(--drift-delay)); }
+.hero-subtopics li:nth-child(4) .hero-pill-core { animation-delay: 0.64s, calc(1.05s + var(--drift-delay)); }
+.hero-subtopics li:nth-child(5) .hero-pill-core { animation-delay: 0.7s, calc(1.05s + var(--drift-delay)); }
+.hero-subtopics li:nth-child(6) .hero-pill-core { animation-delay: 0.76s, calc(1.05s + var(--drift-delay)); }
 
 .btn-primary {
   position: relative;
@@ -840,20 +854,22 @@
   }
 
   .hero-subtopics li {
-    font-size: 0.83rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: fit-content;
+  }
+
+  /* Ajuste fino das pílulas longas no mobile para reduzir área vazia interna */
+  .hero-pill-core {
+    font-size: 0.83rem;
     max-width: min(88vw, 350px);
     line-height: 1.18;
     padding: 4px 9px;
   }
 
-  /* Ajuste fino das pílulas longas no mobile para reduzir área vazia interna */
-  .hero-subtopics li:nth-child(4),
-  .hero-subtopics li:nth-child(5),
-  .hero-subtopics li:nth-child(6) {
+  .hero-subtopics li:nth-child(4) .hero-pill-core,
+  .hero-subtopics li:nth-child(5) .hero-pill-core,
+  .hero-subtopics li:nth-child(6) .hero-pill-core {
     max-width: min(84vw, 314px);
     padding: 3px 8px;
     line-height: 1.18;
@@ -889,7 +905,7 @@
   .hero-enter h1,
   .hero-enter .hero-subtopics,
   .hero-enter .hero-actions,
-  .hero-subtopics li,
+  .hero-pill-core,
   .btn-primary,
   .btn-primary::before,
   .nav-btn::before {
