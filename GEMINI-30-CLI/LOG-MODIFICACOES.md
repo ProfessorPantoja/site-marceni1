@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **75**
+Total atual de itens numerados no log: **83**
 
 ## 2026-03-02
 
@@ -94,8 +94,20 @@ Total atual de itens numerados no log: **75**
 70. Interacao implementada com suavizacao (lerp), influencia por distancia e intensidade variavel por pilula (aleatoriedade controlada), mantendo comportamento premium.
 71. Foto da Marceni atualizada para nova versao em `webp` na secao Sobre (`/quem-e-marceni-1.webp`).
 
+### SNAPSHOT HERO - FUNDO HIBRIDO MOBILE
+72. Data/hora do snapshot: **03/03/2026 23:15**.
+73. Hero passou a manter imagem (`/fundo2.jpg`) como base imediata em todas as telas, evitando tela vazia no carregamento.
+74. Video (`/video-fundo.mp4`) aplicado somente no mobile, com exibicao por camada acima da imagem base.
+75. Video da Hero entra com `fade-in` apenas apos `onLoadedData/onCanPlay`, preservando leitura e continuidade visual.
+
+### FECHAMENTO DO SITE - ENTREGA FINAL
+76. Data/hora do fechamento: **03/03/2026 23:30**.
+77. Hero mobile refinada com overlay preto adicional sobre o video (aprox. 20% mais escuro) para reduzir intensidade visual da animacao.
+78. Escurecimento aplicado somente no contexto `hero-mobile-video`, mantendo desktop com o mesmo visual baseado em imagem.
+79. Encerramento do projeto registrado apos configuracao de DNS no dominio `marcenicorrea.com.br`.
+
 ## Modelo para proximas entradas
-72. Data: YYYY-MM-DD
-73. O que mudou:
-74. Onde mudou (arquivo/area):
-75. Motivo da mudanca:
+80. Data: YYYY-MM-DD
+81. O que mudou:
+82. Onde mudou (arquivo/area):
+83. Motivo da mudanca:

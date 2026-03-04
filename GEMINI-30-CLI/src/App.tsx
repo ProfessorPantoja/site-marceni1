@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, type CSSProperties } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { 
   MessageCircle, 
   Instagram, 
@@ -15,6 +15,8 @@ import './App.css';
 function App() {
   const whatsappUrl = "https://wa.me/5522998946111?text=Oi%2C%20Marceni%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20como%20funciona%20o%20atendimento.";
   const heroRef = useRef<HTMLElement | null>(null);
+  const [isMobileHeroVideo, setIsMobileHeroVideo] = useState(false);
+  const [heroVideoReady, setHeroVideoReady] = useState(false);
   const heroTopicsBase = [
     { label: 'Ansiedade' },
     { label: 'Exaustão por trabalho', tooltip: 'burnout' },
@@ -68,6 +70,34 @@ function App() {
         }
       };
     });
+  }, []);
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia('(max-width: 900px)');
+
+    const updateVideoMode = () => {
+      const shouldUseVideo = mobileQuery.matches;
+      setIsMobileHeroVideo(shouldUseVideo);
+      if (!shouldUseVideo) {
+        setHeroVideoReady(false);
+      }
+    };
+
+    updateVideoMode();
+
+    if (typeof mobileQuery.addEventListener === 'function') {
+      mobileQuery.addEventListener('change', updateVideoMode);
+    } else {
+      mobileQuery.addListener(updateVideoMode);
+    }
+
+    return () => {
+      if (typeof mobileQuery.removeEventListener === 'function') {
+        mobileQuery.removeEventListener('change', updateVideoMode);
+      } else {
+        mobileQuery.removeListener(updateVideoMode);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -229,7 +259,22 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <header className="hero" ref={heroRef}>
+      <header className={`hero${isMobileHeroVideo ? ' hero-mobile-video' : ''}`} ref={heroRef}>
+        {isMobileHeroVideo ? (
+          <video
+            className={`hero-bg-video${heroVideoReady ? ' is-ready' : ''}`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/fundo2.jpg"
+            onLoadedData={() => setHeroVideoReady(true)}
+            onCanPlay={() => setHeroVideoReady(true)}
+          >
+            <source src="/video-fundo.mp4" type="video/mp4" />
+          </video>
+        ) : null}
         <div className="hero-content hero-enter">
           <h1>Ajudando homens e mulheres a superar desafios</h1>
           <ul className="hero-subtopics" aria-label="Principais desafios atendidos">
