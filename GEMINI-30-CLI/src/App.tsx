@@ -18,10 +18,8 @@ function App() {
     { label: 'Ansiedade' },
     { label: 'Exaustão por trabalho', tooltip: 'burnout' },
     { label: 'Falta de equilíbrio nas áreas da vida' },
-    {
-      label: 'Desequilíbrio de papéis e energias em relacionamentos',
-      detail: 'Mulheres que assumem papéis masculinos e homens que assumem papéis femininos'
-    },
+    { label: 'Desequilíbrio de papéis e energias em relacionamentos' },
+    { label: 'Mulheres que assumem papéis masculinos e homens que assumem papéis femininos' },
     { label: 'Inversão de papéis de filhos que assumem o lugar de seus pais' }
   ];
 
@@ -88,13 +86,8 @@ function App() {
           <h1>Ajudando homens e mulheres a superar desafios</h1>
           <ul className="hero-subtopics" aria-label="Principais desafios atendidos">
             {heroTopics.map((topic, index) => (
-              <li
-                key={index}
-                title={topic.tooltip}
-                className={topic.detail ? 'hero-topic-expanded' : ''}
-              >
+              <li key={index} title={topic.tooltip}>
                 <span>{topic.label}</span>
-                {topic.detail ? <small>{topic.detail}</small> : null}
               </li>
             ))}
           </ul>
@@ -116,7 +109,6 @@ function App() {
         </div>
         <div className="about-grid">
           <div className="about-text reveal">
-            <p className="about-credential">Psicóloga & Empresária | CRP 05/67563</p>
             <p className="about-positioning">
               Psicóloga para Empreendedores Iniciantes e Empresários de Médio Porte
             </p>
@@ -134,6 +126,7 @@ function App() {
             <div className="image-placeholder">
               <img src="/quem-e-marceni-1.png" alt="Marceni Correa Inacio Coutinho" loading="lazy" />
             </div>
+            <p className="about-credential about-credential-photo">Psicóloga & Empresária | CRP 05/67563</p>
           </div>
         </div>
       </section>

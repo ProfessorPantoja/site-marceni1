@@ -5,7 +5,7 @@ Objetivo:
 2. A partir deste ponto, toda mudanca de conteudo/estrutura deve entrar neste log.
 
 Contador:
-Total atual de itens numerados no log: **61**
+Total atual de itens numerados no log: **63**
 
 ## 2026-03-02
 
@@ -75,9 +75,11 @@ Total atual de itens numerados no log: **61**
 55. Lista da Hero atualizada com os textos completos pedidos pela cliente (sem resumo).
 56. Item de exaustao na Hero alterado para `Exaustão por trabalho`, com `burnout` exibido no hover.
 57. Textos longos da Hero receberam desdobramento visual para manter clareza sem perder o texto integral.
+58. Hero refinada com separacao em duas caixinhas distintas: `Desequilíbrio de papéis e energias em relacionamentos` e `Mulheres que assumem papéis masculinos e homens que assumem papéis femininos`.
+59. Credencial `Psicóloga & Empresária | CRP 05/67563` movida para abaixo da foto da Marceni na secao Sobre.
 
 ## Modelo para proximas entradas
-58. Data: YYYY-MM-DD
-59. O que mudou:
-60. Onde mudou (arquivo/area):
-61. Motivo da mudanca:
+60. Data: YYYY-MM-DD
+61. O que mudou:
+62. Onde mudou (arquivo/area):
+63. Motivo da mudanca:
