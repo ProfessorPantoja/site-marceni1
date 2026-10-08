@@ -131,6 +131,17 @@ Total atual de itens numerados no log: **99**
 94. Implementacao feita em arquivo estatico: `public/cartao/index.html`.
 95. Objetivo: permitir rastreio claro de acessos vindos do cartao fisico.
 
+### REPAGINACAO PREMIUM (ramo `repaginacao`) - 2026-10-08
+100. Hero refeito: foto da Marceni (blazer vermelho, a que ela escolheu) no topo, com moldura em arco dourada, revelacao de baixo para cima, leve zoom e movimento com o mouse e a rolagem.
+101. Celular: foto ocupa o alto da tela e o texto entra logo abaixo (sem cobrir o rosto); video de fundo antigo deixou de ser usado.
+102. Temas das pilulas viraram uma faixa dourada que corre embaixo do topo.
+103. Sobre: segunda foto (blazer preto) com moldura deslocada, selo do CRP e tres pilares (Psicologa, Empresaria, Palestrante).
+104. Areas de atuacao em grade numerada 01-06; lista repetida removida (o conteudo ficou nos cartoes).
+105. Nova faixa com a frase dela ("Voce nao precisa enfrentar... Estou com voce nesse processo.").
+106. Formatos, contato e rodape redesenhados; mapa em tons escuros. `/cartao` intacto.
+107. Fotos novas em `public/`: `marceni-hero(.webp|-640.webp)` e `marceni-sobre(.webp|-640.webp)`.
+108. Publicacao: so no link de previa da Vercel ate a Marceni aprovar; o dominio continua no `main`.
+
 ## Modelo para proximas entradas
 96. Data: YYYY-MM-DD
 97. O que mudou:

@@ -1,115 +1,52 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
-import { 
-  MessageCircle, 
-  Instagram, 
-  Mail, 
-  MapPin, 
-  Phone, 
-  Video, 
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import {
+  MessageCircle,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  Video,
   Mic2,
-  CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  ArrowDown
 } from 'lucide-react';
 import './App.css';
 
+const whatsappUrl = "https://wa.me/5522998946111?text=Oi%2C%20Marceni%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20como%20funciona%20o%20atendimento.";
+
+const heroTopics = [
+  'Ansiedade',
+  'Exaustão por trabalho (burnout)',
+  'Falta de equilíbrio nas áreas da vida',
+  'Desequilíbrio de papéis e energias em relacionamentos',
+  'Mulheres que assumem papéis masculinos e homens que assumem papéis femininos',
+  'Inversão de papéis de filhos que assumem o lugar de seus pais'
+];
+
+const demands = [
+  { title: "Ansiedade", desc: "Superação de crises e gestão emocional para uma vida mais leve." },
+  { title: "Burnout & Exaustão", desc: "Recuperação do esgotamento profissional e prevenção de novas crises." },
+  { title: "Equilíbrio de Vida", desc: "Harmonia entre as áreas pessoal, profissional e espiritual." },
+  { title: "Relacionamentos", desc: "Desequilíbrio de papéis e energias: mulheres que assumem papéis masculinos e homens que assumem papéis femininos." },
+  { title: "Inversão de Papéis", desc: "Filhos que assumem o lugar de seus pais: conflitos familiares e reorganização de hierarquias." },
+  { title: "Empreendedorismo", desc: "Apoio psicológico focado nos desafios da jornada empresarial." }
+];
+
+const delay = (ms: number) => ({ '--reveal-delay': `${ms}ms` } as CSSProperties);
+
 function App() {
-  const whatsappUrl = "https://wa.me/5522998946111?text=Oi%2C%20Marceni%21%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20como%20funciona%20o%20atendimento.";
   const heroRef = useRef<HTMLElement | null>(null);
-  const [isMobileHeroVideo, setIsMobileHeroVideo] = useState(false);
-  const [heroVideoReady, setHeroVideoReady] = useState(false);
-  const [heroVideoLoopFading, setHeroVideoLoopFading] = useState(false);
-  const heroVideoPlaybackRate = 0.4;
-  const heroVideoLoopFadeThreshold = 0.985;
-  const applyHeroVideoSpeed = (video: HTMLVideoElement) => {
-    video.defaultPlaybackRate = heroVideoPlaybackRate;
-    if (video.playbackRate !== heroVideoPlaybackRate) {
-      video.playbackRate = heroVideoPlaybackRate;
-    }
-  };
-  const heroTopicsBase = [
-    { label: 'Ansiedade' },
-    { label: 'Exaustão por trabalho', tooltip: 'burnout' },
-    { label: 'Falta de equilíbrio nas áreas da vida' },
-    { label: 'Desequilíbrio de papéis e energias em relacionamentos' },
-    { label: 'Mulheres que assumem papéis masculinos e homens que assumem papéis femininos' },
-    { label: 'Inversão de papéis de filhos que assumem o lugar de seus pais' }
-  ];
-  const heroTopics = useMemo(() => {
-    const radialVectors = [
-      { x: -11, y: -7 },
-      { x: 11, y: -7 },
-      { x: 0, y: -10 },
-      { x: -12, y: 0 },
-      { x: 12, y: 0 },
-      { x: 0, y: 10 }
-    ];
-    const seeded = (seed: number) => {
-      const value = Math.sin(seed * 97.13) * 10000;
-      return value - Math.floor(value);
-    };
+  const [scrolled, setScrolled] = useState(false);
 
-    return heroTopicsBase.map((topic, index) => {
-      const vector = radialVectors[index] ?? { x: 0, y: 0 };
-      const jitterA = (seeded(index + 11) - 0.5) * 3.4;
-      const jitterB = (seeded(index + 29) - 0.5) * 3.4;
-      const x1 = vector.x + jitterA;
-      const y1 = vector.y + jitterB;
-      const x2 = vector.x * 0.45 - jitterB;
-      const y2 = vector.y * 0.45 + jitterA;
-      const x3 = -x1 * 0.28;
-      const y3 = -y1 * 0.28;
-      const rot = (seeded(index + 67) - 0.5) * 1.4;
-      const duration = 7 + seeded(index + 89) * 2.8;
-      const delay = seeded(index + 113) * 1.9;
-      const pull = 0.74 + seeded(index + 131) * 0.58;
-
-      return {
-        ...topic,
-        motion: {
-          x1,
-          y1,
-          x2,
-          y2,
-          x3,
-          y3,
-          rot,
-          duration,
-          delay,
-          pull
-        }
-      };
-    });
-  }, []);
-
+  // Navbar ganha fundo depois que a página rola
   useEffect(() => {
-    const mobileQuery = window.matchMedia('(max-width: 900px)');
-
-    const updateVideoMode = () => {
-      const shouldUseVideo = mobileQuery.matches;
-      setIsMobileHeroVideo(shouldUseVideo);
-      if (!shouldUseVideo) {
-        setHeroVideoReady(false);
-        setHeroVideoLoopFading(false);
-      }
-    };
-
-    updateVideoMode();
-
-    if (typeof mobileQuery.addEventListener === 'function') {
-      mobileQuery.addEventListener('change', updateVideoMode);
-    } else {
-      mobileQuery.addListener(updateVideoMode);
-    }
-
-    return () => {
-      if (typeof mobileQuery.removeEventListener === 'function') {
-        mobileQuery.removeEventListener('change', updateVideoMode);
-      } else {
-        mobileQuery.removeListener(updateVideoMode);
-      }
-    };
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Entrada suave das seções ao aparecerem na tela
   useEffect(() => {
     const animatedElements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -128,129 +65,75 @@ function App() {
           }
         });
       },
-      {
-        threshold: 0.14,
-        rootMargin: '0px 0px -8% 0px'
-      }
+      { threshold: 0.14, rootMargin: '0px 0px -8% 0px' }
     );
 
     animatedElements.forEach((element) => observer.observe(element));
-
     return () => observer.disconnect();
   }, []);
 
+  // Hero: retrato acompanha o mouse (computador) e a rolagem (todas as telas)
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-
-    if (prefersReducedMotion || !hasFinePointer) {
-      return;
-    }
-
-    const pills = Array.from(hero.querySelectorAll<HTMLElement>('.hero-subtopics li'));
-    if (!pills.length) return;
-
-    type PullState = { x: number; y: number; targetX: number; targetY: number };
-    const pullStates: PullState[] = pills.map(() => ({ x: 0, y: 0, targetX: 0, targetY: 0 }));
-    const maxPullDistance = 9.5;
+    const state = { x: 0, y: 0, targetX: 0, targetY: 0, scroll: 0 };
     let rafId: number | null = null;
 
     const render = () => {
       rafId = null;
-      let hasPendingMotion = false;
-
-      for (let index = 0; index < pills.length; index += 1) {
-        const state = pullStates[index];
-        state.x += (state.targetX - state.x) * 0.12;
-        state.y += (state.targetY - state.y) * 0.12;
-
-        pills[index].style.setProperty('--mouse-pull-x', `${state.x.toFixed(2)}px`);
-        pills[index].style.setProperty('--mouse-pull-y', `${state.y.toFixed(2)}px`);
-
-        if (
-          Math.abs(state.targetX - state.x) > 0.04 ||
-          Math.abs(state.targetY - state.y) > 0.04
-        ) {
-          hasPendingMotion = true;
-        }
-      }
-
-      if (hasPendingMotion) {
+      state.x += (state.targetX - state.x) * 0.08;
+      state.y += (state.targetY - state.y) * 0.08;
+      hero.style.setProperty('--px', state.x.toFixed(4));
+      hero.style.setProperty('--py', state.y.toFixed(4));
+      hero.style.setProperty('--scroll', state.scroll.toFixed(4));
+      if (Math.abs(state.targetX - state.x) > 0.001 || Math.abs(state.targetY - state.y) > 0.001) {
         rafId = window.requestAnimationFrame(render);
       }
     };
-
-    const queueRender = () => {
-      if (rafId === null) {
-        rafId = window.requestAnimationFrame(render);
-      }
+    const queue = () => {
+      if (rafId === null) rafId = window.requestAnimationFrame(render);
     };
 
-    const updateTargets = (clientX: number, clientY: number) => {
-      const heroRect = hero.getBoundingClientRect();
-      const pointerX = ((clientX - heroRect.left) / heroRect.width) * 2 - 1;
-      const pointerY = ((clientY - heroRect.top) / heroRect.height) * 2 - 1;
-
-      for (let index = 0; index < pills.length; index += 1) {
-        const pill = pills[index];
-        const pillRect = pill.getBoundingClientRect();
-        const pillX = ((pillRect.left + pillRect.width / 2 - heroRect.left) / heroRect.width) * 2 - 1;
-        const pillY = ((pillRect.top + pillRect.height / 2 - heroRect.top) / heroRect.height) * 2 - 1;
-
-        const directionX = pointerX - pillX;
-        const directionY = pointerY - pillY;
-        const distance = Math.hypot(directionX, directionY) || 1;
-        const normalizedX = directionX / distance;
-        const normalizedY = directionY / distance;
-        const influence = Math.max(0, 1 - distance / 1.7);
-        const pullFactor = Number.parseFloat(pill.dataset.pull ?? '1');
-        const pull = maxPullDistance * influence * pullFactor;
-
-        pullStates[index].targetX = normalizedX * pull;
-        pullStates[index].targetY = normalizedY * pull;
-      }
-
-      queueRender();
+    const onPointerMove = (event: PointerEvent) => {
+      const rect = hero.getBoundingClientRect();
+      state.targetX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      state.targetY = ((event.clientY - rect.top) / rect.height) * 2 - 1;
+      queue();
+    };
+    const onPointerLeave = () => {
+      state.targetX = 0;
+      state.targetY = 0;
+      queue();
+    };
+    const onScroll = () => {
+      state.scroll = Math.min(1, Math.max(0, window.scrollY / hero.offsetHeight));
+      queue();
     };
 
-    const handlePointerMove = (event: PointerEvent) => {
-      updateTargets(event.clientX, event.clientY);
-    };
-
-    const releaseToCenter = () => {
-      pullStates.forEach((state) => {
-        state.targetX = 0;
-        state.targetY = 0;
-      });
-      queueRender();
-    };
-
-    hero.addEventListener('pointermove', handlePointerMove);
-    hero.addEventListener('pointerleave', releaseToCenter);
+    if (hasFinePointer) {
+      hero.addEventListener('pointermove', onPointerMove);
+      hero.addEventListener('pointerleave', onPointerLeave);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
     return () => {
-      hero.removeEventListener('pointermove', handlePointerMove);
-      hero.removeEventListener('pointerleave', releaseToCenter);
-      if (rafId !== null) {
-        window.cancelAnimationFrame(rafId);
-      }
+      hero.removeEventListener('pointermove', onPointerMove);
+      hero.removeEventListener('pointerleave', onPointerLeave);
+      window.removeEventListener('scroll', onScroll);
+      if (rafId !== null) window.cancelAnimationFrame(rafId);
     };
-  }, [heroTopics.length]);
+  }, []);
 
   return (
     <div className="app-container">
       {/* Navbar */}
-      <nav className="navbar">
+      <nav className={`navbar${scrolled ? ' is-scrolled' : ''}`}>
         <div className="nav-content">
-          <div className="nav-links">
-            <a href="#sobre">Sobre</a>
-            <a href="#atendimento">Atendimento</a>
-            <a href="#contato">Contato</a>
-          </div>
-          <a href="#sobre" className="logo" aria-label="Ir para secao sobre">
+          <a href="#topo" className="logo" aria-label="Voltar ao topo">
             <img className="logo-icon" src="/logo-marceni-MC-512x512.png" alt="Monograma MC da Marceni" loading="eager" />
             <img
               className="logo-wordmark"
@@ -262,217 +145,194 @@ function App() {
               }}
             />
           </a>
+          <div className="nav-links">
+            <a href="#sobre">Sobre</a>
+            <a href="#atendimento">Atendimento</a>
+            <a href="#contato">Contato</a>
+          </div>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="nav-btn">
             Agendar
           </a>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <header className={`hero${isMobileHeroVideo ? ' hero-mobile-video' : ''}`} ref={heroRef}>
-        {isMobileHeroVideo ? (
-          <video
-            className={`hero-bg-video${heroVideoReady ? ' is-ready' : ''}${heroVideoLoopFading ? ' is-loop-fading' : ''}`}
-            autoPlay
-            muted
-            playsInline
-            preload="metadata"
-            poster="/fundo2.jpg"
-            onLoadedData={(event) => {
-              applyHeroVideoSpeed(event.currentTarget);
-              setHeroVideoReady(true);
-            }}
-            onCanPlay={(event) => {
-              applyHeroVideoSpeed(event.currentTarget);
-              setHeroVideoReady(true);
-            }}
-            onPlay={(event) => {
-              applyHeroVideoSpeed(event.currentTarget);
-            }}
-            onTimeUpdate={(event) => {
-              const video = event.currentTarget;
-              if (!video.duration || heroVideoLoopFading) return;
-              const progress = video.currentTime / video.duration;
-              if (progress >= heroVideoLoopFadeThreshold) {
-                setHeroVideoLoopFading(true);
-              }
-            }}
-            onEnded={(event) => {
-              const video = event.currentTarget;
-              applyHeroVideoSpeed(video);
-              video.currentTime = 0;
-              void video.play().catch(() => null);
-              window.setTimeout(() => {
-                setHeroVideoLoopFading(false);
-              }, 120);
-            }}
-          >
-            <source src="/video-fundo.mp4" type="video/mp4" />
-          </video>
-        ) : null}
-        <div className="hero-content hero-enter">
-          <h1>Ajudando homens e mulheres a superar desafios</h1>
-          <ul className="hero-subtopics" aria-label="Principais desafios atendidos">
-            {heroTopics.map((topic, index) => (
-              <li
-                key={index}
-                title={topic.tooltip}
-                data-pull={topic.motion.pull.toFixed(2)}
-                style={
-                  {
-                    '--mouse-pull-x': '0px',
-                    '--mouse-pull-y': '0px',
-                    '--drift-x-1': `${topic.motion.x1.toFixed(2)}px`,
-                    '--drift-y-1': `${topic.motion.y1.toFixed(2)}px`,
-                    '--drift-x-2': `${topic.motion.x2.toFixed(2)}px`,
-                    '--drift-y-2': `${topic.motion.y2.toFixed(2)}px`,
-                    '--drift-x-3': `${topic.motion.x3.toFixed(2)}px`,
-                    '--drift-y-3': `${topic.motion.y3.toFixed(2)}px`,
-                    '--drift-rot': `${topic.motion.rot.toFixed(2)}deg`,
-                    '--drift-duration': `${topic.motion.duration.toFixed(2)}s`,
-                    '--drift-delay': `${topic.motion.delay.toFixed(2)}s`
-                  } as CSSProperties
-                }
-              >
-                <span className="hero-pill-core">
-                  <span>{topic.label}</span>
-                </span>
-              </li>
+      {/* Hero */}
+      <header id="topo" className="hero" ref={heroRef}>
+        <div className="hero-glow" aria-hidden="true"></div>
+        <div className="hero-inner">
+          <div className="hero-text">
+            <p className="eyebrow hero-step" style={delay(200)}>
+              <span className="eyebrow-line"></span>
+              Psicóloga & Empresária
+            </p>
+            <h1>
+              <span className="line"><span className="hero-step" style={delay(320)}>Ajudando homens</span></span>
+              <span className="line"><span className="hero-step" style={delay(420)}>e mulheres a</span></span>
+              <span className="line"><span className="hero-step gold-text" style={delay(520)}>superar desafios</span></span>
+            </h1>
+            <p className="hero-lead hero-step" style={delay(700)}>
+              Psicóloga para empreendedores iniciantes e empresários de médio porte. Escuta acolhedora, com direção terapêutica.
+            </p>
+            <div className="hero-actions hero-step" style={delay(820)}>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                <MessageCircle size={20} />
+                Agendar consulta
+              </a>
+              <a href="#sobre" className="btn-ghost">
+                Conhecer a Marceni
+                <ArrowDown size={16} />
+              </a>
+            </div>
+            <ul className="hero-credentials hero-step" style={delay(950)}>
+              <li><strong>CRP</strong> 05/67563</li>
+              <li><strong>CEO</strong> Academia Cérebro</li>
+              <li><strong>Búzios</strong> e on-line</li>
+            </ul>
+          </div>
+
+          <figure className="hero-portrait">
+            <span className="portrait-frame" aria-hidden="true"></span>
+            <div className="portrait-mask">
+              <img
+                src="/marceni-hero.webp"
+                srcSet="/marceni-hero-640.webp 640w, /marceni-hero.webp 1024w"
+                sizes="(max-width: 900px) 100vw, 42vw"
+                alt="Marceni Correa, psicóloga, de blazer vermelho"
+                fetchPriority="high"
+              />
+            </div>
+            <figcaption className="portrait-caption">
+              <span>Marceni Correa</span>
+              Psicologia Estratégica para Empresários
+            </figcaption>
+          </figure>
+        </div>
+
+        <div className="hero-marquee" aria-label="Principais desafios atendidos">
+          <div className="marquee-track">
+            {[0, 1].map((copy) => (
+              <ul key={copy} aria-hidden={copy === 1 ? true : undefined}>
+                {heroTopics.map((topic) => (
+                  <li key={topic}>{topic}</li>
+                ))}
+              </ul>
             ))}
-          </ul>
-          <div className="hero-actions">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              <MessageCircle size={20} />
-              Agendar consulta
-            </a>
           </div>
         </div>
-        <div className="hero-overlay"></div>
       </header>
 
-      {/* Section: Sobre */}
+      {/* Sobre */}
       <section id="sobre" className="about">
-        <div className="section-header reveal">
-          <h2>Sobre Marceni</h2>
-          <div className="gold-line"></div>
-        </div>
         <div className="about-grid">
-          <div className="about-text reveal">
-            <p className="about-positioning">
+          <figure className="about-image reveal">
+            <span className="about-frame" aria-hidden="true"></span>
+            <img src="/marceni-sobre.webp" alt="Marceni Correa Inácio Coutinho" loading="lazy" />
+            <figcaption className="about-badge">
+              <span>CRP</span>
+              05/67563
+            </figcaption>
+          </figure>
+          <div className="about-text">
+            <p className="eyebrow reveal"><span className="eyebrow-line"></span>Quem é</p>
+            <h2 className="reveal" style={delay(60)}>Marceni Correa</h2>
+            <p className="about-positioning reveal" style={delay(120)}>
               Psicóloga para Empreendedores Iniciantes e Empresários de Médio Porte
             </p>
-            <p className="highlight">
+            <p className="highlight reveal" style={delay(180)}>
               Marceni Correa Inácio Coutinho é psicóloga (CRP 05/67563) e atua com foco no atendimento de empreendedores iniciantes e empresários de médio porte.
             </p>
-            <p>
+            <p className="reveal" style={delay(240)}>
               Seu trabalho apoia homens e mulheres no enfrentamento da ansiedade, da exaustão por trabalho (burnout) e de conflitos relacionais, com escuta acolhedora e direção terapêutica.
             </p>
-            <p>
+            <p className="reveal" style={delay(300)}>
               Como CEO da Academia Cérebro, ela integra sua expertise em psicologia com a visão empresarial para ajudar adultos ansiosos a reencontrarem paz e direção na vida e no empreendedorismo.
             </p>
-          </div>
-          <div className="about-image reveal" style={{ '--reveal-delay': '120ms' } as CSSProperties}>
-            <div className="image-placeholder">
-              <img src="/quem-e-marceni-1.webp" alt="Marceni Correa Inacio Coutinho" loading="lazy" />
-            </div>
-            <p className="about-credential about-credential-photo">Psicóloga & Empresária | CRP 05/67563</p>
+            <ul className="about-pillars reveal" style={delay(360)}>
+              <li><span>Psicóloga</span>CRP 05/67563</li>
+              <li><span>Empresária</span>CEO da Academia Cérebro</li>
+              <li><span>Palestrante</span>Ansiedade, burnout e papéis</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Section: Demandas Atendidas */}
+      {/* Áreas de atuação */}
       <section id="atendimento" className="demands">
         <div className="section-header reveal">
+          <p className="eyebrow eyebrow-center"><span className="eyebrow-line"></span>Atendimento<span className="eyebrow-line"></span></p>
           <h2>Áreas de Atuação</h2>
           <p className="section-subtitle">Ajudando você a superar os desafios modernos e reencontrar o equilíbrio.</p>
-          <div className="gold-line"></div>
-        </div>
-        <div className="client-brief-block reveal" style={{ '--reveal-delay': '70ms' } as CSSProperties}>
-          <h3>Principais Demandas de Atendimento</h3>
-          <p className="client-brief-lead">
-            Você não precisa enfrentar esses desafios emocionais sozinho. Estou com você nesse processo.
-          </p>
-          <ul>
-            <li>Ansiedade</li>
-            <li>Exaustão por trabalho ( burnout)</li>
-            <li>Falta de equilíbrio nas áreas da vida</li>
-            <li>Desequilíbrio de papéis e energias em relacionamentos (mulheres que assumem papéis masculinos e homens que assumem papéis femininos)</li>
-            <li>Inversão de papéis de filhos que assumem o lugar de seus pais</li>
-          </ul>
         </div>
         <div className="demands-grid">
-          {[
-            { title: "Ansiedade", desc: "Superação de crises e gestão emocional para uma vida mais leve." },
-            { title: "Burnout & Exaustão", desc: "Recuperação do esgotamento profissional e prevenção de novas crises." },
-            { title: "Equilíbrio de Vida", desc: "Harmonia entre as áreas pessoal, profissional e espiritual." },
-            { title: "Relacionamentos", desc: "Mulheres que assumem papéis masculinos e homens que assumem papéis femininos" },
-            { title: "Inversão de Papéis", desc: "Tratando conflitos familiares e reorganização de hierarquias." },
-            { title: "Empreendedorismo", desc: "Apoio psicológico focado nos desafios da jornada empresarial." }
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="demand-card reveal"
-              style={{ '--reveal-delay': `${120 + index * 80}ms` } as CSSProperties}
-            >
-              <CheckCircle2 size={24} color="var(--gold)" />
+          {demands.map((item, index) => (
+            <article key={item.title} className="demand-card reveal" style={delay(80 + index * 70)}>
+              <span className="demand-number">{String(index + 1).padStart(2, '0')}</span>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* Section: Formatos */}
-      <section className="formats dark-bg">
+      {/* Frase */}
+      <div className="quote-band">
+        <blockquote className="reveal">
+          <span className="quote-mark" aria-hidden="true">“</span>
+          <p>Você não precisa enfrentar esses desafios emocionais sozinho.</p>
+          <p className="quote-gold">Estou com você nesse processo.</p>
+          <footer>Marceni Correa</footer>
+        </blockquote>
+      </div>
+
+      {/* Formatos */}
+      <section className="formats">
         <div className="section-header reveal">
+          <p className="eyebrow eyebrow-center"><span className="eyebrow-line"></span>Como funciona<span className="eyebrow-line"></span></p>
           <h2>Formatos de Atendimento</h2>
-          <div className="gold-line"></div>
         </div>
         <div className="formats-grid">
-          <div className="format-card reveal" style={{ '--reveal-delay': '70ms' } as CSSProperties}>
-            <MapPin size={32} />
+          <div className="format-card reveal" style={delay(70)}>
+            <MapPin size={28} />
             <h3>Presencial</h3>
             <p>Atendimento em Búzios, RJ, em ambiente seguro e acolhedor.</p>
           </div>
-          <div className="format-card reveal" style={{ '--reveal-delay': '150ms' } as CSSProperties}>
-            <Video size={32} />
+          <div className="format-card reveal" style={delay(150)}>
+            <Video size={28} />
             <h3>On-line</h3>
             <p>Flexibilidade para atendimento de qualquer lugar do mundo.</p>
           </div>
-          <div className="format-card reveal" style={{ '--reveal-delay': '230ms' } as CSSProperties}>
-            <Mic2 size={32} />
+          <div className="format-card reveal" style={delay(230)}>
+            <Mic2 size={28} />
             <h3>Palestras</h3>
-            <p>Ansiedade - Exaustão Por Trabalho - Troca de Hierarquia (filhos com pais) - Inversão de Papeis (Marido e Mulher)</p>
+            <p>Ansiedade · Exaustão por trabalho · Troca de hierarquia (filhos com pais) · Inversão de papéis (marido e mulher)</p>
           </div>
         </div>
       </section>
 
-      {/* Section: Contato */}
+      {/* Contato */}
       <section id="contato" className="contact">
         <div className="contact-container">
-          <div className="contact-info reveal">
-            <div className="section-header align-left">
-              <h2>Entre em Contato</h2>
-              <div className="gold-line"></div>
-            </div>
-            <p className="reveal" style={{ '--reveal-delay': '70ms' } as CSSProperties}>
+          <div className="contact-info">
+            <p className="eyebrow reveal"><span className="eyebrow-line"></span>Contato</p>
+            <h2 className="reveal" style={delay(60)}>Entre em Contato</h2>
+            <p className="contact-lead reveal" style={delay(100)}>
               Estou pronta para te acompanhar nessa jornada de autodescoberta.
             </p>
-            
-            <div className="info-item reveal" style={{ '--reveal-delay': '110ms' } as CSSProperties}>
-              <Mail size={20} color="var(--gold)" />
+
+            <div className="info-item reveal" style={delay(140)}>
+              <Mail size={20} />
               <span>marcenipsicoach@gmail.com</span>
             </div>
-            <div className="info-item reveal" style={{ '--reveal-delay': '150ms' } as CSSProperties}>
-              <Instagram size={20} color="var(--gold)" />
+            <div className="info-item reveal" style={delay(170)}>
+              <Instagram size={20} />
               <a href="https://instagram.com/marcenicorrea" target="_blank" rel="noopener noreferrer">@marcenicorrea</a>
             </div>
-            <div className="info-item reveal" style={{ '--reveal-delay': '190ms' } as CSSProperties}>
-              <Phone size={20} color="var(--gold)" />
+            <div className="info-item reveal" style={delay(200)}>
+              <Phone size={20} />
               <span>(22) 99894-6111</span>
             </div>
-            <div className="info-item reveal" style={{ '--reveal-delay': '230ms' } as CSSProperties}>
-              <MapPin size={20} color="var(--gold)" />
+            <div className="info-item reveal" style={delay(230)}>
+              <MapPin size={20} />
               <span>
                 Avenida José Bento Ribeiro Dantas, 5001, sala 03
                 <br />
@@ -483,8 +343,19 @@ function App() {
                 Búzios - RJ
               </span>
             </div>
+          </div>
 
-            <div className="map-block reveal" style={{ '--reveal-delay': '260ms' } as CSSProperties}>
+          <div className="contact-side">
+            <div className="cta-box reveal" style={delay(120)}>
+              <img src="/logo-marceni-MC-512x512.png" alt="" aria-hidden="true" className="cta-monogram" loading="lazy" />
+              <h3>Dê o primeiro passo</h3>
+              <p>O agendamento é feito diretamente pelo WhatsApp de forma simples e segura.</p>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary full-width">
+                Falar no WhatsApp
+                <ArrowRight size={18} />
+              </a>
+            </div>
+            <div className="map-block reveal" style={delay(200)}>
               <h3 className="map-title">Como chegar</h3>
               <div className="map-embed">
                 <iframe
@@ -497,26 +368,15 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="contact-cta reveal" style={{ '--reveal-delay': '170ms' } as CSSProperties}>
-            <div className="cta-box">
-              <h3>Dê o primeiro passo</h3>
-              <p>O agendamento é feito diretamente pelo WhatsApp de forma simples e segura.</p>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary full-width">
-                Falar no WhatsApp
-                <ArrowRight size={18} />
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <div className="footer-brand reveal">
+          <div className="footer-brand">
             <img className="footer-logo" src="/logo-marceni.png" alt="Logo Marceni Correa" loading="lazy" />
-            <h3>Marceni Correa</h3>
-            <p>Psicóloga & Empresária - CRP 05/67563</p>
+            <p>Psicóloga & Empresária · CRP 05/67563</p>
           </div>
           <div className="footer-bottom">
             <p>&copy; 2026 Marceni Correa. Todos os direitos reservados.</p>
