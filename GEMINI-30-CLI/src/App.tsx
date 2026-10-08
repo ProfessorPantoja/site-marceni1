@@ -224,20 +224,19 @@ function App() {
       {/* Sobre */}
       <section id="sobre" className="about">
         <div className="about-grid">
-          <figure className="about-image reveal">
-            <span className="about-frame" aria-hidden="true"></span>
-            <img src="/marceni-sobre.webp" alt="Marceni Correa Inácio Coutinho" loading="lazy" />
-            <figcaption className="about-badge">
-              <span>CRP</span>
-              05/67563
-            </figcaption>
-          </figure>
-          <div className="about-text">
+          <div className="about-intro">
             <p className="eyebrow reveal"><span className="eyebrow-line"></span>Quem é</p>
             <h2 className="reveal" style={delay(60)}>Marceni Correa</h2>
             <p className="about-positioning reveal" style={delay(120)}>
               Psicóloga para Empreendedores Iniciantes e Empresários de Médio Porte
             </p>
+            <ul className="about-pillars reveal" style={delay(180)}>
+              <li><span>Psicóloga</span>CRP 05/67563</li>
+              <li><span>Empresária</span>CEO da Academia Cérebro</li>
+              <li><span>Palestrante</span>Ansiedade, burnout e papéis</li>
+            </ul>
+          </div>
+          <div className="about-text">
             <p className="highlight reveal" style={delay(180)}>
               Marceni Correa Inácio Coutinho é psicóloga (CRP 05/67563) e atua com foco no atendimento de empreendedores iniciantes e empresários de médio porte.
             </p>
@@ -247,11 +246,6 @@ function App() {
             <p className="reveal" style={delay(300)}>
               Como CEO da Academia Cérebro, ela integra sua expertise em psicologia com a visão empresarial para ajudar adultos ansiosos a reencontrarem paz e direção na vida e no empreendedorismo.
             </p>
-            <ul className="about-pillars reveal" style={delay(360)}>
-              <li><span>Psicóloga</span>CRP 05/67563</li>
-              <li><span>Empresária</span>CEO da Academia Cérebro</li>
-              <li><span>Palestrante</span>Ansiedade, burnout e papéis</li>
-            </ul>
           </div>
         </div>
       </section>
@@ -276,7 +270,19 @@ function App() {
 
       {/* Frase */}
       <div className="quote-band">
-        <blockquote className="reveal">
+        <figure className="quote-portrait reveal">
+          <span className="quote-frame" aria-hidden="true"></span>
+          <div className="quote-mask">
+            <img
+              src="/marceni-sobre.webp"
+              srcSet="/marceni-sobre-640.webp 640w, /marceni-sobre.webp 1024w"
+              sizes="(max-width: 900px) 70vw, 360px"
+              alt="Marceni Correa Inácio Coutinho"
+              loading="lazy"
+            />
+          </div>
+        </figure>
+        <blockquote className="reveal" style={delay(120)}>
           <span className="quote-mark" aria-hidden="true">“</span>
           <p>Você não precisa enfrentar esses desafios emocionais sozinho.</p>
           <p className="quote-gold">Estou com você nesse processo.</p>
@@ -380,7 +386,12 @@ function App() {
           </div>
           <div className="footer-bottom">
             <p>&copy; 2026 Marceni Correa. Todos os direitos reservados.</p>
-            <p className="designer-tag">Design & Desenvolvimento | Fabio Pantoja</p>
+            <p className="designer-tag">
+              Design & Desenvolvimento |{' '}
+              <a href="https://letreirodigital.com.br/?utm_source=marcenicorrea&utm_medium=rodape&utm_campaign=portfolio" target="_blank" rel="noopener">
+                Letreiro Digital
+              </a>
+            </p>
           </div>
         </div>
       </footer>

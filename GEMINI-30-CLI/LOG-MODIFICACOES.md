@@ -140,6 +140,8 @@ Total atual de itens numerados no log: **99**
 105. Nova faixa com a frase dela ("Voce nao precisa enfrentar... Estou com voce nesse processo.").
 106. Formatos, contato e rodape redesenhados; mapa em tons escuros. `/cartao` intacto.
 107. Fotos novas em `public/`: `marceni-hero(.webp|-640.webp)` e `marceni-sobre(.webp|-640.webp)`.
+109. Sobre ficou so com texto (duas colunas); a segunda foto (blazer preto) foi para a faixa da frase, em arco, para nao aparecer foto duas vezes seguidas.
+110. Rodape: "Design & Desenvolvimento | Letreiro Digital" com link para letreirodigital.com.br (UTM `utm_source=marcenicorrea&utm_medium=rodape`); fundo preto da logo do rodape sumiu.
 108. Publicacao: so no link de previa da Vercel ate a Marceni aprovar; o dominio continua no `main`.
 
 ## Modelo para proximas entradas
