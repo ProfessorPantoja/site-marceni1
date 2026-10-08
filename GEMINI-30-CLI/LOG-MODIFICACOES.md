@@ -147,6 +147,9 @@ Total atual de itens numerados no log: **99**
 111. Celular: foto do topo mais baixa (48% da tela) para o botao "Agendar consulta" aparecer sem rolar; removida a linha vermelha da borda da foto sobre o titulo.
 112. Formato On-line: "de qualquer lugar do mundo" trocado por "Sessoes por video, com a liberdade de ser atendido onde for melhor para voce." (evita promessa de atendimento no exterior).
 
+113. Sombra sobre a foto do topo mais leve (~10%) no celular e no computador.
+114. Previa publica para a Marceni aprovar: https://marceni-previa.vercel.app (projeto Vercel separado `marceni-previa`, com noindex). Atualizar: `npm run build` e publicar uma copia do `dist/` com `npx vercel deploy --prod --yes` numa pasta chamada `marceni-previa` (NUNCA rodar `vercel deploy --prod` dentro de `GEMINI-30-CLI`: publica no dominio dela).
+
 ## Modelo para proximas entradas
 96. Data: YYYY-MM-DD
 97. O que mudou:
