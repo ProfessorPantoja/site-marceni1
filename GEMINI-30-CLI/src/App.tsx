@@ -305,7 +305,7 @@ function App() {
           <div className="format-card reveal" style={delay(150)}>
             <Video size={28} />
             <h3>On-line</h3>
-            <p>Flexibilidade para atendimento de qualquer lugar do mundo.</p>
+            <p>Sessões por vídeo, com a liberdade de ser atendido onde for melhor para você.</p>
           </div>
           <div className="format-card reveal" style={delay(230)}>
             <Mic2 size={28} />

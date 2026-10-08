@@ -144,6 +144,9 @@ Total atual de itens numerados no log: **99**
 110. Rodape: "Design & Desenvolvimento | Letreiro Digital" com link para letreirodigital.com.br (UTM `utm_source=marcenicorrea&utm_medium=rodape`); fundo preto da logo do rodape sumiu.
 108. Publicacao: so no link de previa da Vercel ate a Marceni aprovar; o dominio continua no `main`.
 
+111. Celular: foto do topo mais baixa (48% da tela) para o botao "Agendar consulta" aparecer sem rolar; removida a linha vermelha da borda da foto sobre o titulo.
+112. Formato On-line: "de qualquer lugar do mundo" trocado por "Sessoes por video, com a liberdade de ser atendido onde for melhor para voce." (evita promessa de atendimento no exterior).
+
 ## Modelo para proximas entradas
 96. Data: YYYY-MM-DD
 97. O que mudou:

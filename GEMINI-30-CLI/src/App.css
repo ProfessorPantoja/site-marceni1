@@ -1031,8 +1031,9 @@
     order: -1;
     width: calc(100% + 40px);
     margin: 0 -20px;
-    height: 64svh;
-    min-height: 420px;
+    height: 50vh;
+    height: 48svh;
+    min-height: 280px;
     max-height: none;
     aspect-ratio: auto;
     transform: translate3d(0, calc(var(--scroll) * 60px), 0);
@@ -1048,7 +1049,8 @@
 
   .portrait-mask::after {
     background:
-      linear-gradient(180deg, rgba(8, 8, 8, 0.6) 0%, transparent 20%, transparent 62%, rgba(8, 8, 8, 0.85) 88%, #080808 100%);
+      linear-gradient(180deg, rgba(8, 8, 8, 0.6) 0%, transparent 22%, transparent 55%, rgba(8, 8, 8, 0.85) 80%, #080808 93%);
+    inset: 0 0 -2px 0;
   }
 
   .portrait-mask img { object-position: 50% 12%; }
@@ -1056,12 +1058,12 @@
   .hero-text {
     position: relative;
     z-index: 1;
-    margin-top: -64px;
+    margin-top: -56px;
   }
 
   .hero .eyebrow { margin-bottom: 14px; font-size: 0.66rem; letter-spacing: 0.26em; }
-  .hero h1 { font-size: clamp(2.3rem, 10.5vw, 3.2rem); margin-bottom: 16px; }
-  .hero-lead { font-size: 0.98rem; margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(2.1rem, 9.6vw, 3rem); margin-bottom: 14px; }
+  .hero-lead { font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
   .hero-actions { margin-bottom: 26px; gap: 10px 22px; }
   .hero-credentials { padding-top: 18px; }
   .hero-credentials li { padding: 0 14px; font-size: 0.76rem; }
